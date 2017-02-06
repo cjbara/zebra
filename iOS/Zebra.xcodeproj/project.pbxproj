@@ -13,6 +13,8 @@
 		9117EC0E1E48F04D0009A3B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC0C1E48F04D0009A3B2 /* Main.storyboard */; };
 		9117EC101E48F04D0009A3B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */; };
 		9117EC131E48F04D0009A3B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC111E48F04D0009A3B2 /* LaunchScreen.storyboard */; };
+		919BE6E61E492D4100660461 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6E51E492D4100660461 /* Database.swift */; };
+		919BE6E81E492D9700660461 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 919BE6E71E492D9700660461 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9117EC121E48F04D0009A3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9117EC141E48F04D0009A3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		919BE6E51E492D4100660461 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		919BE6E71E492D9700660461 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,14 +65,48 @@
 		9117EC071E48F04C0009A3B2 /* Zebra */ = {
 			isa = PBXGroup;
 			children = (
-				9117EC081E48F04C0009A3B2 /* AppDelegate.swift */,
-				9117EC0A1E48F04D0009A3B2 /* ViewController.swift */,
-				9117EC0C1E48F04D0009A3B2 /* Main.storyboard */,
+				919BE6E21E492CFF00660461 /* ViewControllers */,
+				919BE6E31E492D0800660461 /* Views */,
+				919BE6E11E492CF800660461 /* Models */,
 				9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */,
-				9117EC111E48F04D0009A3B2 /* LaunchScreen.storyboard */,
-				9117EC141E48F04D0009A3B2 /* Info.plist */,
+				919BE6E41E492D1A00660461 /* Misc */,
 			);
 			path = Zebra;
+			sourceTree = "<group>";
+		};
+		919BE6E11E492CF800660461 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				919BE6E51E492D4100660461 /* Database.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		919BE6E21E492CFF00660461 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9117EC0A1E48F04D0009A3B2 /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		919BE6E31E492D0800660461 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9117EC0C1E48F04D0009A3B2 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		919BE6E41E492D1A00660461 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				9117EC081E48F04C0009A3B2 /* AppDelegate.swift */,
+				9117EC111E48F04D0009A3B2 /* LaunchScreen.storyboard */,
+				9117EC141E48F04D0009A3B2 /* Info.plist */,
+				919BE6E71E492D9700660461 /* GoogleService-Info.plist */,
+			);
+			name = Misc;
 			sourceTree = "<group>";
 		};
 		BB62440887472CA142CC9A92 /* Pods */ = {
@@ -152,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9117EC131E48F04D0009A3B2 /* LaunchScreen.storyboard in Resources */,
+				919BE6E81E492D9700660461 /* GoogleService-Info.plist in Resources */,
 				9117EC101E48F04D0009A3B2 /* Assets.xcassets in Resources */,
 				9117EC0E1E48F04D0009A3B2 /* Main.storyboard in Resources */,
 			);
@@ -212,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919BE6E61E492D4100660461 /* Database.swift in Sources */,
 				9117EC0B1E48F04D0009A3B2 /* ViewController.swift in Sources */,
 				9117EC091E48F04C0009A3B2 /* AppDelegate.swift in Sources */,
 			);
@@ -377,6 +417,7 @@
 				9117EC191E48F04D0009A3B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
