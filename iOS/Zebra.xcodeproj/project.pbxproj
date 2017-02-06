@@ -1,0 +1,384 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1696D5AB6F53D65DDA33216F /* Pods_Zebra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB1F8668DB3BF429E718E37 /* Pods_Zebra.framework */; };
+		9117EC091E48F04C0009A3B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9117EC081E48F04C0009A3B2 /* AppDelegate.swift */; };
+		9117EC0B1E48F04D0009A3B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9117EC0A1E48F04D0009A3B2 /* ViewController.swift */; };
+		9117EC0E1E48F04D0009A3B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC0C1E48F04D0009A3B2 /* Main.storyboard */; };
+		9117EC101E48F04D0009A3B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */; };
+		9117EC131E48F04D0009A3B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC111E48F04D0009A3B2 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4C7811A298BD8BE78FD2206B /* Pods-Zebra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zebra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zebra/Pods-Zebra.debug.xcconfig"; sourceTree = "<group>"; };
+		6AB1F8668DB3BF429E718E37 /* Pods_Zebra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zebra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B3DF8029B654086ECC82AC1 /* Pods-Zebra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zebra.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zebra/Pods-Zebra.release.xcconfig"; sourceTree = "<group>"; };
+		9117EC051E48F04C0009A3B2 /* Zebra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zebra.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9117EC081E48F04C0009A3B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9117EC0A1E48F04D0009A3B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9117EC0D1E48F04D0009A3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9117EC121E48F04D0009A3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9117EC141E48F04D0009A3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9117EC021E48F04C0009A3B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1696D5AB6F53D65DDA33216F /* Pods_Zebra.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9117EBFC1E48F04C0009A3B2 = {
+			isa = PBXGroup;
+			children = (
+				9117EC071E48F04C0009A3B2 /* Zebra */,
+				9117EC061E48F04C0009A3B2 /* Products */,
+				BB62440887472CA142CC9A92 /* Pods */,
+				DC59938D0C8240C5A6E9C80A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9117EC061E48F04C0009A3B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9117EC051E48F04C0009A3B2 /* Zebra.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9117EC071E48F04C0009A3B2 /* Zebra */ = {
+			isa = PBXGroup;
+			children = (
+				9117EC081E48F04C0009A3B2 /* AppDelegate.swift */,
+				9117EC0A1E48F04D0009A3B2 /* ViewController.swift */,
+				9117EC0C1E48F04D0009A3B2 /* Main.storyboard */,
+				9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */,
+				9117EC111E48F04D0009A3B2 /* LaunchScreen.storyboard */,
+				9117EC141E48F04D0009A3B2 /* Info.plist */,
+			);
+			path = Zebra;
+			sourceTree = "<group>";
+		};
+		BB62440887472CA142CC9A92 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4C7811A298BD8BE78FD2206B /* Pods-Zebra.debug.xcconfig */,
+				8B3DF8029B654086ECC82AC1 /* Pods-Zebra.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DC59938D0C8240C5A6E9C80A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AB1F8668DB3BF429E718E37 /* Pods_Zebra.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9117EC041E48F04C0009A3B2 /* Zebra */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9117EC171E48F04D0009A3B2 /* Build configuration list for PBXNativeTarget "Zebra" */;
+			buildPhases = (
+				9F6118D6ADBBA7BBF1064159 /* [CP] Check Pods Manifest.lock */,
+				9117EC011E48F04C0009A3B2 /* Sources */,
+				9117EC021E48F04C0009A3B2 /* Frameworks */,
+				9117EC031E48F04C0009A3B2 /* Resources */,
+				560F3700449E604923DFE9F6 /* [CP] Embed Pods Frameworks */,
+				432147FE34C5579EC3AA5D25 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Zebra;
+			productName = Zebra;
+			productReference = 9117EC051E48F04C0009A3B2 /* Zebra.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9117EBFD1E48F04C0009A3B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = coryjbara;
+				TargetAttributes = {
+					9117EC041E48F04C0009A3B2 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 499G2MTD9Y;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9117EC001E48F04C0009A3B2 /* Build configuration list for PBXProject "Zebra" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9117EBFC1E48F04C0009A3B2;
+			productRefGroup = 9117EC061E48F04C0009A3B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9117EC041E48F04C0009A3B2 /* Zebra */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9117EC031E48F04C0009A3B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9117EC131E48F04D0009A3B2 /* LaunchScreen.storyboard in Resources */,
+				9117EC101E48F04D0009A3B2 /* Assets.xcassets in Resources */,
+				9117EC0E1E48F04D0009A3B2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		432147FE34C5579EC3AA5D25 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zebra/Pods-Zebra-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		560F3700449E604923DFE9F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Zebra/Pods-Zebra-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F6118D6ADBBA7BBF1064159 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9117EC011E48F04C0009A3B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9117EC0B1E48F04D0009A3B2 /* ViewController.swift in Sources */,
+				9117EC091E48F04C0009A3B2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9117EC0C1E48F04D0009A3B2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9117EC0D1E48F04D0009A3B2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9117EC111E48F04D0009A3B2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9117EC121E48F04D0009A3B2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9117EC151E48F04D0009A3B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9117EC161E48F04D0009A3B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9117EC181E48F04D0009A3B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C7811A298BD8BE78FD2206B /* Pods-Zebra.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 499G2MTD9Y;
+				INFOPLIST_FILE = Zebra/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = coryjbara.Zebra;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		9117EC191E48F04D0009A3B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B3DF8029B654086ECC82AC1 /* Pods-Zebra.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 499G2MTD9Y;
+				INFOPLIST_FILE = Zebra/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = coryjbara.Zebra;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9117EC001E48F04C0009A3B2 /* Build configuration list for PBXProject "Zebra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9117EC151E48F04D0009A3B2 /* Debug */,
+				9117EC161E48F04D0009A3B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9117EC171E48F04D0009A3B2 /* Build configuration list for PBXNativeTarget "Zebra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9117EC181E48F04D0009A3B2 /* Debug */,
+				9117EC191E48F04D0009A3B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9117EBFD1E48F04C0009A3B2 /* Project object */;
+}
