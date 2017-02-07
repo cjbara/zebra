@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		1696D5AB6F53D65DDA33216F /* Pods_Zebra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB1F8668DB3BF429E718E37 /* Pods_Zebra.framework */; };
 		9117EC091E48F04C0009A3B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9117EC081E48F04C0009A3B2 /* AppDelegate.swift */; };
-		9117EC0B1E48F04D0009A3B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9117EC0A1E48F04D0009A3B2 /* ViewController.swift */; };
 		9117EC0E1E48F04D0009A3B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC0C1E48F04D0009A3B2 /* Main.storyboard */; };
 		9117EC101E48F04D0009A3B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */; };
 		9117EC131E48F04D0009A3B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC111E48F04D0009A3B2 /* LaunchScreen.storyboard */; };
 		919BE6E61E492D4100660461 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6E51E492D4100660461 /* Database.swift */; };
 		919BE6E81E492D9700660461 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 919BE6E71E492D9700660461 /* GoogleService-Info.plist */; };
+		919BE6EA1E49326800660461 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6E91E49326800660461 /* LoginViewController.swift */; };
+		919BE6EC1E49336700660461 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6EB1E49336700660461 /* HomeTabBarController.swift */; };
+		919BE6EE1E49447900660461 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6ED1E49447900660461 /* SignUpViewController.swift */; };
+		919BE6F01E49448600660461 /* SignUpDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6EF1E49448600660461 /* SignUpDetailsViewController.swift */; };
+		919BE6F21E49450F00660461 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6F11E49450F00660461 /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,13 +27,17 @@
 		8B3DF8029B654086ECC82AC1 /* Pods-Zebra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zebra.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zebra/Pods-Zebra.release.xcconfig"; sourceTree = "<group>"; };
 		9117EC051E48F04C0009A3B2 /* Zebra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zebra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9117EC081E48F04C0009A3B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9117EC0A1E48F04D0009A3B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9117EC0D1E48F04D0009A3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9117EC121E48F04D0009A3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9117EC141E48F04D0009A3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		919BE6E51E492D4100660461 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		919BE6E71E492D9700660461 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		919BE6E91E49326800660461 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		919BE6EB1E49336700660461 /* HomeTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		919BE6ED1E49447900660461 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		919BE6EF1E49448600660461 /* SignUpDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpDetailsViewController.swift; sourceTree = "<group>"; };
+		919BE6F11E49450F00660461 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				919BE6E51E492D4100660461 /* Database.swift */,
+				919BE6F11E49450F00660461 /* Profile.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -85,7 +94,8 @@
 		919BE6E21E492CFF00660461 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9117EC0A1E48F04D0009A3B2 /* ViewController.swift */,
+				919BE6F31E49474E00660461 /* Signup/Login */,
+				919BE6EB1E49336700660461 /* HomeTabBarController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -107,6 +117,16 @@
 				919BE6E71E492D9700660461 /* GoogleService-Info.plist */,
 			);
 			name = Misc;
+			sourceTree = "<group>";
+		};
+		919BE6F31E49474E00660461 /* Signup/Login */ = {
+			isa = PBXGroup;
+			children = (
+				919BE6E91E49326800660461 /* LoginViewController.swift */,
+				919BE6ED1E49447900660461 /* SignUpViewController.swift */,
+				919BE6EF1E49448600660461 /* SignUpDetailsViewController.swift */,
+			);
+			name = Signup/Login;
 			sourceTree = "<group>";
 		};
 		BB62440887472CA142CC9A92 /* Pods */ = {
@@ -251,8 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919BE6EA1E49326800660461 /* LoginViewController.swift in Sources */,
 				919BE6E61E492D4100660461 /* Database.swift in Sources */,
-				9117EC0B1E48F04D0009A3B2 /* ViewController.swift in Sources */,
+				919BE6EE1E49447900660461 /* SignUpViewController.swift in Sources */,
+				919BE6F21E49450F00660461 /* Profile.swift in Sources */,
+				919BE6F01E49448600660461 /* SignUpDetailsViewController.swift in Sources */,
+				919BE6EC1E49336700660461 /* HomeTabBarController.swift in Sources */,
 				9117EC091E48F04C0009A3B2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
