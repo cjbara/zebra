@@ -19,6 +19,9 @@
 		919BE6EE1E49447900660461 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6ED1E49447900660461 /* SignUpViewController.swift */; };
 		919BE6F01E49448600660461 /* SignUpDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6EF1E49448600660461 /* SignUpDetailsViewController.swift */; };
 		919BE6F21E49450F00660461 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6F11E49450F00660461 /* Profile.swift */; };
+		91A0177E1E5398B500F08E58 /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0177D1E5398B500F08E58 /* AuthHandler.swift */; };
+		91A017801E5A5BAA00F08E58 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0177F1E5A5BAA00F08E58 /* HomeViewController.swift */; };
+		91A017841E5A5D4400F08E58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A017831E5A5D4400F08E58 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		919BE6ED1E49447900660461 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		919BE6EF1E49448600660461 /* SignUpDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpDetailsViewController.swift; sourceTree = "<group>"; };
 		919BE6F11E49450F00660461 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		91A0177D1E5398B500F08E58 /* AuthHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
+		91A0177F1E5A5BAA00F08E58 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		91A017831E5A5D4400F08E58 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 			children = (
 				919BE6E51E492D4100660461 /* Database.swift */,
 				919BE6F11E49450F00660461 /* Profile.swift */,
+				91A0177D1E5398B500F08E58 /* AuthHandler.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -96,6 +103,8 @@
 			children = (
 				919BE6F31E49474E00660461 /* Signup/Login */,
 				919BE6EB1E49336700660461 /* HomeTabBarController.swift */,
+				91A017811E5A5BB200F08E58 /* Home/Feed */,
+				91A017821E5A5D3100F08E58 /* Settings */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -127,6 +136,22 @@
 				919BE6EF1E49448600660461 /* SignUpDetailsViewController.swift */,
 			);
 			name = Signup/Login;
+			sourceTree = "<group>";
+		};
+		91A017811E5A5BB200F08E58 /* Home/Feed */ = {
+			isa = PBXGroup;
+			children = (
+				91A0177F1E5A5BAA00F08E58 /* HomeViewController.swift */,
+			);
+			name = Home/Feed;
+			sourceTree = "<group>";
+		};
+		91A017821E5A5D3100F08E58 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				91A017831E5A5D4400F08E58 /* SettingsViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		BB62440887472CA142CC9A92 /* Pods */ = {
@@ -274,7 +299,10 @@
 				919BE6EA1E49326800660461 /* LoginViewController.swift in Sources */,
 				919BE6E61E492D4100660461 /* Database.swift in Sources */,
 				919BE6EE1E49447900660461 /* SignUpViewController.swift in Sources */,
+				91A017841E5A5D4400F08E58 /* SettingsViewController.swift in Sources */,
 				919BE6F21E49450F00660461 /* Profile.swift in Sources */,
+				91A0177E1E5398B500F08E58 /* AuthHandler.swift in Sources */,
+				91A017801E5A5BAA00F08E58 /* HomeViewController.swift in Sources */,
 				919BE6F01E49448600660461 /* SignUpDetailsViewController.swift in Sources */,
 				919BE6EC1E49336700660461 /* HomeTabBarController.swift in Sources */,
 				9117EC091E48F04C0009A3B2 /* AppDelegate.swift in Sources */,

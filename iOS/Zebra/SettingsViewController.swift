@@ -1,22 +1,33 @@
 //
-//  HomeTabBarController.swift
+//  SettingsViewController.swift
 //  Zebra
 //
-//  Created by Cory Jbara on 2/6/17.
+//  Created by Cory Jbara on 2/19/17.
 //  Copyright © 2017 coryjbara. All rights reserved.
 //
 
 import UIKit
+import Toast_Swift
 
-class HomeTabBarController: UITabBarController {
+class SettingsViewController: UIViewController {
     
-    var db: Database = Database.sharedInstance
+    let db = Database.sharedInstance
     
+    @IBAction func signOut(_ sender: UIBarButtonItem) {
+        db.signOut { (success) in
+            if success == true {
+                //Take user back to sign in page
+                let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "loginVC")
+                UIApplication.shared.keyWindow?.rootViewController = loginViewController
+            } else {
+                self.view.makeToast("Could not sign out", duration: 3.0, position: .center)
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        db.initialize()
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,25 +7,41 @@
 //
 
 import UIKit
+import Toast_Swift
 import ActionSheetPicker_3_0
 
 class SignUpDetailsViewController: UIViewController {
 
-    var profile = Profile()
+    var db: Database = Database.sharedInstance
     
-    @IBOutlet var tellUsLabel: UILabel!
+    @IBOutlet var aboutMeTextView: UITextView!
+    @IBOutlet var nameTextView: UITextField!
+    @IBOutlet var zipCodeTextView: UITextField!
+    @IBOutlet var accountType: UISegmentedControl!
+    @IBOutlet var nameOptions: UISegmentedControl!
+    @IBOutlet var selectDisease: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if profile.name.isEmpty == false {
-            tellUsLabel.text = "Tell us a bit about yourself, \(profile.name)"
+        db.initialize()
+        
+        aboutMeTextView.layer.cornerRadius = 4;
+        aboutMeTextView.layer.borderColor = UIColor.black.cgColor
+        aboutMeTextView.layer.borderWidth = 3.0
+        
+        if nameTextView.text == "" {
+            nameOptions.selectedSegmentIndex = 1
         }
-
+        
+        accountType.selectedSegmentIndex = 1
+        
+        db.getDiseases()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let message = "Welcome to Zebra, \(db.profile.username)"
+        self.view.makeToast(message, duration: 3.0, position: .center)
     }
     
     @IBAction func navigationItemPicker(sender: UIButton) {
@@ -41,6 +57,18 @@ class SignUpDetailsViewController: UIViewController {
 
     @IBAction func completeSignUp(_ sender: Any) {
         //Insert data into Firebase
+        let name = nameTextView.text!
+        let zipCode = zipCodeTextView.text!
+        let aboutMe = aboutMeTextView.text!
+        
+        let account = (accountType.selectedSegmentIndex == 0) ? "public" : "private"
+        var privacy = (nameOptions.selectedSegmentIndex == 0) ? "name" : "username"
+        
+        if name == "" {
+            privacy = "username"
+        }
+        
+        db.updateUserData(name: name, zipCode: zipCode, about: aboutMe, account: account, privacy: privacy)
         
         //Transition to Home VC
         self.performSegue(withIdentifier: "signUpToTabBar", sender: nil)

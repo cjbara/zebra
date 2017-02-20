@@ -7,27 +7,29 @@
 //
 
 import Foundation
+import Firebase
 
 class Profile {
-    var name: String
     var email: String
     var username: String
-    var password: String
-    var zipCode: String
     
     init() {
-        self.name = ""
         self.email = ""
         self.username = ""
-        self.password = ""
-        self.zipCode = ""
     }
     
-    init(name: String, email: String, username: String, password: String, zipCode: String) {
-        self.name = name
+    init(email: String, username: String) {
         self.email = email
         self.username = username
-        self.password = password
-        self.zipCode = zipCode
+    }
+    
+    init(userData: FIRDataSnapshot) {
+        email = userData.childSnapshot(forPath: "email").value as! String
+        username = userData.childSnapshot(forPath: "username").value as! String
+    }
+    
+    func reset() {
+        email = ""
+        username = ""
     }
 }

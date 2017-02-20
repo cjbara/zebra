@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import Toast_Swift
 
 class LoginViewController: UIViewController {
@@ -15,21 +14,28 @@ class LoginViewController: UIViewController {
     @IBOutlet var username: UITextField!
     @IBOutlet var password: UITextField!
     
+    var db: Database = Database.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        db.initialize()
     }
 
     @IBAction func loginPressed(_ sender: Any) {
+        self.view.makeToastActivity(.center)
         let email = username.text!
-        let pw = password.text!
-        FIRAuth.auth()?.signIn(withEmail: email, password: pw) { (user, error) in
-            if (error == nil) {
+        let password = self.password.text!
+        db.signIn(email: email, password: password) { (success) in
+            if success == true {
+                self.view.hideToastActivity()
                 self.performSegue(withIdentifier: "loginToTabBar", sender: nil)
             } else {
+                self.view.hideToastActivity()
                 self.password.text = ""
-                self.view.makeToast("Could not login! Check your username and password to make sure they match.")
+                self.view.makeToast("Could not login! Check your email and password to make sure they match.")
             }
         }
+        
     }
 
     override func didReceiveMemoryWarning() {

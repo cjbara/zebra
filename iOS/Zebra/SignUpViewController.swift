@@ -8,45 +8,85 @@
 
 import UIKit
 import Toast_Swift
-import Firebase
 
 class SignUpViewController: UIViewController {
 
-    @IBOutlet var name: UITextField!
-    @IBOutlet var email: UITextField!
-    @IBOutlet var password: UITextField!
-    @IBOutlet var username: UITextField!
-    @IBOutlet var zipCode: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var usernameTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var password2TextField: UITextField!
     
-    var profile = Profile()
+    var db: Database = Database.sharedInstance
     
     @IBAction func nextSignUpPage(_ sender: UIButton) {
-        let n = name.text!
-        let e = email.text!
-        let p = password.text!
-        let u = username.text!
-        let z = zipCode.text!
+        self.view.makeToastActivity(.center)
         
-        profile = Profile(name: n, email: e, username: u, password: p, zipCode: z)
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
+        let password2 = password2TextField.text!
+        let username = usernameTextField.text!
         
-        FIRAuth.auth()?.createUser(withEmail: e, password: p) { (user, error) in
-            if error != nil {
-                self.view.makeToast("Could not create user! This email is already registered.")
-                self.email.text = ""
-                self.password.text = ""
+        if email == "" {
+            self.view.hideToastActivity()
+            self.view.makeToast("Please enter an email address", duration: 3.0, position: .center)
+            return
+        }
+        if username == "" {
+            self.view.hideToastActivity()
+            self.view.makeToast("Please enter a username", duration: 3.0, position: .center)
+            return
+        }
+        if password == "" {
+            self.view.hideToastActivity()
+            self.view.makeToast("Please enter a password", duration: 3.0, position: .center)
+            return
+        }
+        if password.characters.count < 6 {
+            self.view.hideToastActivity()
+            self.view.makeToast("Your password must be at least 6 characters", duration: 3.0, position: .center)
+            self.passwordTextField.text = ""
+            self.password2TextField.text = ""
+            return
+        }
+        
+        //Check if passwords are the same
+        if password != password2 {
+            self.view.hideToastActivity()
+            self.view.makeToast("Your passwords do not match", duration: 3.0, position: .center)
+            self.passwordTextField.text = ""
+            self.password2TextField.text = ""
+            return
+        }
+        
+        //Check if username already exists
+        db.checkUsername(username: username) { (userExists) in
+            if userExists == true {
+                self.view.hideToastActivity()
+                self.view.makeToast("This username is taken, please enter a new username", duration: 3.0, position: .center)
+                self.usernameTextField.text = ""
             } else {
-                //Insert data into firebase
-                
-                //Segue to other Sign up VC
-                self.performSegue(withIdentifier: "signUp1to2", sender: nil)
+                //Create the user
+                self.db.createUser(email: email, password: password, username: username, callback: { (success) in
+                    if success == false {
+                        self.view.hideToastActivity()
+                        self.view.makeToast("Could not create user! This email is already registered.", duration: 3.0, position: .center)
+                        self.emailTextField.text = ""
+                        self.passwordTextField.text = ""
+                        self.password2TextField.text = ""
+                    } else {
+                        self.view.hideToastActivity()
+                        self.performSegue(withIdentifier: "signUp1to2", sender: nil)
+                    }
+                })
+
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        db.initialize()
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,8 +100,8 @@ class SignUpViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller
-        let vc = segue.destination as! SignUpDetailsViewController
-        vc.profile = profile
+        //let vc = segue.destination as! SignUpDetailsViewController
+        
     }
  
 

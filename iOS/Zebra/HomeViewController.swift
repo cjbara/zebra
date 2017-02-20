@@ -1,22 +1,23 @@
 //
-//  HomeTabBarController.swift
+//  HomeViewController.swift
 //  Zebra
 //
-//  Created by Cory Jbara on 2/6/17.
+//  Created by Cory Jbara on 2/19/17.
 //  Copyright © 2017 coryjbara. All rights reserved.
 //
 
 import UIKit
+import Toast_Swift
 
-class HomeTabBarController: UITabBarController {
+class HomeViewController: UIViewController {
     
     var db: Database = Database.sharedInstance
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        db.initialize()
+        let message = "Welcome, \(db.profile.username)"
+        self.view.makeToast(message, duration: 3.0, position: .center)
     }
 
     override func didReceiveMemoryWarning() {
