@@ -67,11 +67,10 @@ class SignUpDetailsViewController: UIViewController {
         if name == "" {
             privacy = "username"
         }
-        
-        db.updateUserData(name: name, zipCode: zipCode, about: aboutMe, account: account, privacy: privacy)
-        
-        //Transition to Home VC
-        self.performSegue(withIdentifier: "signUpToTabBar", sender: nil)
+        db.updateUserData(name: name, zipCode: zipCode, about: aboutMe, account: account, privacy: privacy) { (success) in
+            //Transition to Home VC
+            self.performSegue(withIdentifier: "signUpToTabBar", sender: nil)
+        }
     }
     
     /*

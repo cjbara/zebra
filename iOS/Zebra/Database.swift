@@ -93,13 +93,18 @@ class Database {
         })
     }
     
-    func updateUserData(name: String, zipCode: String, about: String, account: String, privacy: String) {
+    func updateUserData(name: String, zipCode: String, about: String, account: String, privacy: String, callback: ((Bool) -> Void)?) {
         
         let uid = FIRAuth.auth()?.currentUser?.uid
         let userData = ["uid": uid!, "email": profile.email, "username": profile.username, "name": name, "zipCode": zipCode, "about": about, "account": account, "privacy": privacy] as [String : String]
         
         ref.child("users").child(profile.username).setValue(userData)
+        
+        profile.updateUserData(name: name, zipCode: zipCode, about: about, account: account, privacy: privacy)
+        
+        if callback != nil {
+            callback!(true)
+        }
     }
-    
     
 }
