@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1696D5AB6F53D65DDA33216F /* Pods_Zebra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB1F8668DB3BF429E718E37 /* Pods_Zebra.framework */; };
+		23F70ADE1E5BD4180040AB43 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F70ADD1E5BD4180040AB43 /* CreateEventViewController.swift */; };
 		9117EC091E48F04C0009A3B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9117EC081E48F04C0009A3B2 /* AppDelegate.swift */; };
 		9117EC0E1E48F04D0009A3B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC0C1E48F04D0009A3B2 /* Main.storyboard */; };
 		9117EC101E48F04D0009A3B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23F70ADD1E5BD4180040AB43 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		4C7811A298BD8BE78FD2206B /* Pods-Zebra.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zebra.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Zebra/Pods-Zebra.debug.xcconfig"; sourceTree = "<group>"; };
 		6AB1F8668DB3BF429E718E37 /* Pods_Zebra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zebra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B3DF8029B654086ECC82AC1 /* Pods-Zebra.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zebra.release.xcconfig"; path = "Pods/Target Support Files/Pods-Zebra/Pods-Zebra.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23F70ADF1E5BD4260040AB43 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				23F70ADD1E5BD4180040AB43 /* CreateEventViewController.swift */,
+			);
+			name = Event;
+			sourceTree = "<group>";
+		};
 		9117EBFC1E48F04C0009A3B2 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 		919BE6E21E492CFF00660461 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				23F70ADF1E5BD4260040AB43 /* Event */,
 				919BE6F31E49474E00660461 /* Signup/Login */,
 				919BE6EB1E49336700660461 /* HomeTabBarController.swift */,
 				91A017811E5A5BB200F08E58 /* Home/Feed */,
@@ -308,6 +319,7 @@
 				919BE6EE1E49447900660461 /* SignUpViewController.swift in Sources */,
 				91A017841E5A5D4400F08E58 /* SettingsViewController.swift in Sources */,
 				919BE6F21E49450F00660461 /* Profile.swift in Sources */,
+				23F70ADE1E5BD4180040AB43 /* CreateEventViewController.swift in Sources */,
 				91A0177E1E5398B500F08E58 /* AuthHandler.swift in Sources */,
 				91A017801E5A5BAA00F08E58 /* HomeViewController.swift in Sources */,
 				919BE6F01E49448600660461 /* SignUpDetailsViewController.swift in Sources */,
