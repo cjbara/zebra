@@ -107,4 +107,23 @@ class Database {
         }
     }
     
+    func createEvent(title: String, location: Location, date: NSDate, disease: String, organizer: Organization, taggedPeople: [String], taggedOrganizations: [String], description: String, isPublic: Bool) {
+        
+        let eventData: [String: Any] = [
+            "title": title,
+            "latitude": location.latitude,
+            "longitude": location.longitude,
+            "date": date.timeIntervalSince1970,
+            "disease": disease,
+            "organizerUsername": organizer.username,
+            "description": description,
+            "isPublic": isPublic
+        ]
+        
+        let newref = ref.child("events").childByAutoId()
+        newref.setValue(eventData)
+        //newref.child("taggedPeople")
+        //newref.child("taggedOrganizations")
+    }
+    
 }

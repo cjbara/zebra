@@ -22,6 +22,8 @@
 		91A0177E1E5398B500F08E58 /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0177D1E5398B500F08E58 /* AuthHandler.swift */; };
 		91A017801E5A5BAA00F08E58 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0177F1E5A5BAA00F08E58 /* HomeViewController.swift */; };
 		91A017841E5A5D4400F08E58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A017831E5A5D4400F08E58 /* SettingsViewController.swift */; };
+		91D330911E5BA3D400F3F7A5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D330901E5BA3D400F3F7A5 /* Location.swift */; };
+		91D330931E5BA4A200F3F7A5 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D330921E5BA4A200F3F7A5 /* Organization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		91A0177D1E5398B500F08E58 /* AuthHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
 		91A0177F1E5A5BAA00F08E58 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		91A017831E5A5D4400F08E58 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		91D330901E5BA3D400F3F7A5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		91D330921E5BA4A200F3F7A5 /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				919BE6E51E492D4100660461 /* Database.swift */,
+				91D330901E5BA3D400F3F7A5 /* Location.swift */,
 				919BE6F11E49450F00660461 /* Profile.swift */,
+				91D330921E5BA4A200F3F7A5 /* Organization.swift */,
 				91A0177D1E5398B500F08E58 /* AuthHandler.swift */,
 			);
 			name = Models;
@@ -297,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				919BE6EA1E49326800660461 /* LoginViewController.swift in Sources */,
+				91D330911E5BA3D400F3F7A5 /* Location.swift in Sources */,
 				919BE6E61E492D4100660461 /* Database.swift in Sources */,
 				919BE6EE1E49447900660461 /* SignUpViewController.swift in Sources */,
 				91A017841E5A5D4400F08E58 /* SettingsViewController.swift in Sources */,
@@ -305,6 +312,7 @@
 				91A017801E5A5BAA00F08E58 /* HomeViewController.swift in Sources */,
 				919BE6F01E49448600660461 /* SignUpDetailsViewController.swift in Sources */,
 				919BE6EC1E49336700660461 /* HomeTabBarController.swift in Sources */,
+				91D330931E5BA4A200F3F7A5 /* Organization.swift in Sources */,
 				9117EC091E48F04C0009A3B2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

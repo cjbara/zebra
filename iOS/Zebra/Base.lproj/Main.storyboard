@@ -218,6 +218,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ys-82-VrD">
+                                <rect key="frame" x="11" y="20" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="dnk-bX-iut"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -232,9 +239,11 @@
                             <constraint firstItem="ehD-oI-0sj" firstAttribute="centerX" secondItem="nId-Wk-LAg" secondAttribute="centerX" id="IvG-OA-aBR"/>
                             <constraint firstItem="nId-Wk-LAg" firstAttribute="centerX" secondItem="vuD-zf-TNX" secondAttribute="centerX" id="IyQ-7q-pj2"/>
                             <constraint firstItem="e5R-C3-LBu" firstAttribute="trailing" secondItem="rQN-Of-13T" secondAttribute="trailing" id="Nw2-q2-z3R"/>
+                            <constraint firstItem="8ys-82-VrD" firstAttribute="top" secondItem="X6c-ZM-2Zs" secondAttribute="bottom" id="OKM-aH-Ehr"/>
                             <constraint firstItem="9Pf-uu-dzL" firstAttribute="leading" secondItem="rQN-Of-13T" secondAttribute="trailing" constant="5" id="QD7-KF-fk2"/>
                             <constraint firstItem="e5R-C3-LBu" firstAttribute="leading" secondItem="rQN-Of-13T" secondAttribute="leading" id="UGe-Gr-rtd"/>
                             <constraint firstItem="9Pf-uu-dzL" firstAttribute="leading" secondItem="HK9-Jc-sdc" secondAttribute="leading" id="UHA-2p-Ipv"/>
+                            <constraint firstItem="8ys-82-VrD" firstAttribute="leading" secondItem="GJT-VL-q4S" secondAttribute="leadingMargin" constant="-5" id="XYR-HG-iB7"/>
                             <constraint firstItem="1fa-HL-QeT" firstAttribute="trailing" secondItem="rQN-Of-13T" secondAttribute="trailing" id="YSZ-9H-7x9"/>
                             <constraint firstItem="nId-Wk-LAg" firstAttribute="top" secondItem="vuD-zf-TNX" secondAttribute="bottom" id="Zde-oj-jyn"/>
                             <constraint firstItem="HK9-Jc-sdc" firstAttribute="centerY" secondItem="8xb-Lr-UMS" secondAttribute="centerY" id="b7x-iV-xgi"/>
