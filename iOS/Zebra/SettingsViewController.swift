@@ -38,7 +38,7 @@ class SettingsViewController: UIViewController {
         
         db.initialize()
         
-        aboutMeTextView.layer.cornerRadius = 4
+        aboutMeTextView.layer.cornerRadius = 4;
         aboutMeTextView.layer.borderColor = UIColor.black.cgColor
         aboutMeTextView.layer.borderWidth = 3.0
         
@@ -72,7 +72,7 @@ class SettingsViewController: UIViewController {
         }, cancel: { ActionStringCancelBlock in return }, origin: sender)
     }
     
-    @IBAction func updateInformation(_ sender: UIButton) {
+    @IBAction func updateInformation(_ sender: UIBarButtonItem) {
         //Insert data into Firebase
         let name = nameTextView.text!
         let zipCode = zipCodeTextView.text!
