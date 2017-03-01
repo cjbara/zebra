@@ -19,6 +19,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         db.initialize()
+        
+        db.checkAuth(callback: { (success) in
+            if success == true {
+                self.performSegue(withIdentifier: "loginToTabBar", sender: nil)
+            }
+        })
     }
 
     @IBAction func loginPressed(_ sender: Any) {

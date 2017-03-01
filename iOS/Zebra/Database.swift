@@ -17,6 +17,7 @@ class Database {
     
     var profile = Profile()
     var diseases = [String: String]()
+    var people = [Profile]()
     var diseasesLoaded = false
     
     func initialize() {
@@ -25,6 +26,22 @@ class Database {
         }
         ref = FIRDatabase.database().reference()
         initialized = true
+    }
+    
+    func checkAuth(callback: @escaping ((Bool) -> Void)){
+        if FIRAuth.auth()?.currentUser != nil {
+            self.ref.child("userId").child((FIRAuth.auth()?.currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+                let username = snapshot.value as! String
+                self.ref.child("users").child(username).observeSingleEvent(of: .value, with: { (userData) in
+                    
+                    //create profile
+                    self.profile = Profile(userData: userData)
+                    callback(true)
+                })
+            })
+        } else {
+            callback(false)
+        }
     }
     
     func createUser(email: String, password: String, username: String, callback: @escaping (Bool) -> Void) {
@@ -124,6 +141,26 @@ class Database {
         newref.setValue(eventData)
         //newref.child("taggedPeople")
         //newref.child("taggedOrganizations")
+    }
+    
+    func getAllPeople(callback: (() -> Void)?) {
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            let enumerator = snapshot.children
+            while let child = enumerator.nextObject() as? FIRDataSnapshot {
+                
+                let newPerson = Profile(userData: child)
+                
+                self.people.append(newPerson)
+            }
+            callback!()
+        })
+    }
+    
+    func getPerson(withUsername username: String, callback: ((Profile) -> Void)?) {
+        ref.child("users").child(username).observeSingleEvent(of: .value, with: { (snapshot) in
+            let person = Profile(userData: snapshot)
+            callback!(person)
+        })
     }
     
 }
