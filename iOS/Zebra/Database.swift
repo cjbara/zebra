@@ -163,4 +163,19 @@ class Database {
         })
     }
     
+    func getListOfEvents(callback: @escaping (([Event]) -> Void) ) {
+        var events: [Event] = []
+        ref.child("events").queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
+            for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                events.append(Event(snapshot: child))
+            }
+            callback(events)
+        })
+    }
+    
+    /*func saveEventAsFavorite(event: Event) {
+        ref.child("users").child("events").childByAutoId().setValue(<#T##value: Any?##Any?#>)
+        ref.child("events").child(event.id)
+    }*/
+    
 }

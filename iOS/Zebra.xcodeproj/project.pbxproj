@@ -16,6 +16,8 @@
 		9131FC091E638B6F00234B4C /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FC081E638B6F00234B4C /* PeopleTableViewCell.swift */; };
 		9131FC0B1E638B8100234B4C /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FC0A1E638B8100234B4C /* PeopleTableViewController.swift */; };
 		9131FC0D1E6393B500234B4C /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FC0C1E6393B500234B4C /* PersonViewController.swift */; };
+		9131FC0F1E67851100234B4C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FC0E1E67851100234B4C /* MapViewController.swift */; };
+		9131FC131E67883C00234B4C /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FC121E67883C00234B4C /* EventAnnotation.swift */; };
 		919BE6E61E492D4100660461 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6E51E492D4100660461 /* Database.swift */; };
 		919BE6E81E492D9700660461 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 919BE6E71E492D9700660461 /* GoogleService-Info.plist */; };
 		919BE6EA1E49326800660461 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6E91E49326800660461 /* LoginViewController.swift */; };
@@ -28,6 +30,9 @@
 		91A017841E5A5D4400F08E58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A017831E5A5D4400F08E58 /* SettingsViewController.swift */; };
 		91D330911E5BA3D400F3F7A5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D330901E5BA3D400F3F7A5 /* Location.swift */; };
 		91D330931E5BA4A200F3F7A5 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D330921E5BA4A200F3F7A5 /* Organization.swift */; };
+		91E214431E6D202F00A3A731 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E214421E6D202F00A3A731 /* EventsTableViewController.swift */; };
+		91E214451E6D203E00A3A731 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E214441E6D203E00A3A731 /* EventTableViewCell.swift */; };
+		91E214471E6D20EA00A3A731 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E214461E6D20EA00A3A731 /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,8 @@
 		9131FC081E638B6F00234B4C /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
 		9131FC0A1E638B8100234B4C /* PeopleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
 		9131FC0C1E6393B500234B4C /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
+		9131FC0E1E67851100234B4C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9131FC121E67883C00234B4C /* EventAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
 		919BE6E51E492D4100660461 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		919BE6E71E492D9700660461 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		919BE6E91E49326800660461 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +63,9 @@
 		91A017831E5A5D4400F08E58 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		91D330901E5BA3D400F3F7A5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		91D330921E5BA4A200F3F7A5 /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		91E214421E6D202F00A3A731 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		91E214441E6D203E00A3A731 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		91E214461E6D20EA00A3A731 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				23F70ADD1E5BD4180040AB43 /* CreateEventViewController.swift */,
+				91E214421E6D202F00A3A731 /* EventsTableViewController.swift */,
+				91E214441E6D203E00A3A731 /* EventTableViewCell.swift */,
 			);
 			name = Event;
 			sourceTree = "<group>";
@@ -101,6 +113,7 @@
 			children = (
 				919BE6E21E492CFF00660461 /* ViewControllers */,
 				919BE6E31E492D0800660461 /* Views */,
+				9131FC111E67881F00234B4C /* Map Annotations */,
 				919BE6E11E492CF800660461 /* Models */,
 				9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */,
 				919BE6E41E492D1A00660461 /* Misc */,
@@ -118,11 +131,28 @@
 			name = People;
 			sourceTree = "<group>";
 		};
+		9131FC101E67851600234B4C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				9131FC0E1E67851100234B4C /* MapViewController.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		9131FC111E67881F00234B4C /* Map Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				9131FC121E67883C00234B4C /* EventAnnotation.swift */,
+			);
+			name = "Map Annotations";
+			sourceTree = "<group>";
+		};
 		919BE6E11E492CF800660461 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				919BE6E51E492D4100660461 /* Database.swift */,
 				91D330901E5BA3D400F3F7A5 /* Location.swift */,
+				91E214461E6D20EA00A3A731 /* Event.swift */,
 				919BE6F11E49450F00660461 /* Profile.swift */,
 				91D330921E5BA4A200F3F7A5 /* Organization.swift */,
 				91A0177D1E5398B500F08E58 /* AuthHandler.swift */,
@@ -133,6 +163,7 @@
 		919BE6E21E492CFF00660461 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9131FC101E67851600234B4C /* Map */,
 				9131FC071E638A4400234B4C /* People */,
 				23F70ADF1E5BD4260040AB43 /* Event */,
 				919BE6F31E49474E00660461 /* Signup/Login */,
@@ -338,14 +369,19 @@
 				91A017841E5A5D4400F08E58 /* SettingsViewController.swift in Sources */,
 				919BE6F21E49450F00660461 /* Profile.swift in Sources */,
 				9131FC091E638B6F00234B4C /* PeopleTableViewCell.swift in Sources */,
+				91E214451E6D203E00A3A731 /* EventTableViewCell.swift in Sources */,
 				23F70ADE1E5BD4180040AB43 /* CreateEventViewController.swift in Sources */,
 				91A0177E1E5398B500F08E58 /* AuthHandler.swift in Sources */,
 				91A017801E5A5BAA00F08E58 /* HomeViewController.swift in Sources */,
+				9131FC131E67883C00234B4C /* EventAnnotation.swift in Sources */,
+				91E214431E6D202F00A3A731 /* EventsTableViewController.swift in Sources */,
 				9131FC0D1E6393B500234B4C /* PersonViewController.swift in Sources */,
 				919BE6F01E49448600660461 /* SignUpDetailsViewController.swift in Sources */,
 				919BE6EC1E49336700660461 /* HomeTabBarController.swift in Sources */,
 				91D330931E5BA4A200F3F7A5 /* Organization.swift in Sources */,
 				9117EC091E48F04C0009A3B2 /* AppDelegate.swift in Sources */,
+				91E214471E6D20EA00A3A731 /* Event.swift in Sources */,
+				9131FC0F1E67851100234B4C /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
