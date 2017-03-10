@@ -223,7 +223,7 @@
 				TargetAttributes = {
 					9117EC041E48F04C0009A3B2 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 499G2MTD9Y;
+						DevelopmentTeam = 34TZ54QCUD;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -447,7 +447,7 @@
 			baseConfigurationReference = 4C7811A298BD8BE78FD2206B /* Pods-Zebra.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 499G2MTD9Y;
+				DEVELOPMENT_TEAM = 34TZ54QCUD;
 				INFOPLIST_FILE = Zebra/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = coryjbara.Zebra;
@@ -461,7 +461,7 @@
 			baseConfigurationReference = 8B3DF8029B654086ECC82AC1 /* Pods-Zebra.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 499G2MTD9Y;
+				DEVELOPMENT_TEAM = 34TZ54QCUD;
 				INFOPLIST_FILE = Zebra/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = coryjbara.Zebra;

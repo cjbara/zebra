@@ -12,5 +12,6 @@ target 'Zebra' do
 
   pod 'Toast-Swift', '~> 2.0.0'
   pod 'ActionSheetPicker-3.0'
+  pod 'IQKeyboardManagerSwift'
 
 end
