@@ -50,4 +50,17 @@ class Event {
         self.disease = snapshot.childSnapshot(forPath: "disease").value as! String
     }
     
+//    let locationName = "Hesburgh Library Notre Dame"
+//    
+//    let geocoder = CLGeocoder()
+//    geocoder.geocodeAddressString(locationName) { (placemarks, error) in
+//    print(placemarks)
+//    if let placemark = placemarks?[0] {
+//    let locationLatLon: CLLocation = placemark.location!
+//    print(locationLatLon)
+//    } else {
+//    self.view.makeToast("Could not find location: locationName")
+//    }
+//    }
+    
 }

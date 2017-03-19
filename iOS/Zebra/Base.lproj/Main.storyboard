@@ -541,7 +541,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e7h-84-2Xk" id="n9T-Ez-m1w">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Title]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMf-QW-VzU">
@@ -839,6 +839,7 @@
         <!--People-->
         <scene sceneID="JU7-HO-s3P">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iXS-5e-zDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WV9-dg-AgH" customClass="NavigationViewController" customModule="Zebra" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="People" image="profile" selectedImage="profile" id="HYB-jH-oY7" userLabel="Map"/>
                     <toolbarItems/>
@@ -851,7 +852,6 @@
                         <segue destination="eRY-sU-yR1" kind="relationship" relationship="rootViewController" id="nP9-84-UfC"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iXS-5e-zDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4623" y="-330"/>
         </scene>
@@ -868,18 +868,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XDe-gd-UxG" id="mWd-wE-VBw">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ug4-1Y-ByS">
-                                            <rect key="frame" x="15" y="11" width="76" height="21"/>
+                                            <rect key="frame" x="15" y="12" width="76" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Location" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dqb-No-Aqh">
-                                            <rect key="frame" x="294" y="11" width="66" height="21"/>
+                                            <rect key="frame" x="294.5" y="12" width="65.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -976,11 +976,11 @@
             </objects>
             <point key="canvasLocation" x="2216.8000000000002" y="416.94152923538235"/>
         </scene>
-        <!--Settings-->
+        <!--Profile-->
         <scene sceneID="5kf-2Z-V5u">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a7l-YX-kUa" customClass="NavigationViewController" customModule="Zebra" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="edU-cs-hqk"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="settings" selectedImage="settings" id="edU-cs-hqk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3xf-Zg-U60">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
