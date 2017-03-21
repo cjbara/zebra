@@ -1,23 +1,23 @@
 //
-//  EventsTableViewController.swift
+//  OrganizationsTableViewController.swift
 //  Zebra
 //
-//  Created by Cory Jbara on 3/5/17.
+//  Created by Cory Jbara on 3/20/17.
 //  Copyright © 2017 coryjbara. All rights reserved.
 //
 
 import UIKit
 
-protocol EventsTableViewControllerDelegate {
-    func didSelectEvent(event: Event)
+protocol OrganizationsTableViewControllerDelegate{
+    func didSelectOrg(organization: Organization)
 }
 
-class EventsTableViewController: UITableViewController, UISearchResultsUpdating {
+class OrganizationsTableViewController: UITableViewController, UISearchResultsUpdating {
     
-    var delegate: EventsTableViewControllerDelegate! = nil
+    var delegate: OrganizationsTableViewControllerDelegate! = nil
     
-    var filteredEvents = [Event]()
     let db = Database.sharedInstance
+    var filteredOrganizations = [Organization]()
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -30,62 +30,73 @@ class EventsTableViewController: UITableViewController, UISearchResultsUpdating 
         
         refresh()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         refresh()
     }
     
     func refresh() {
-        self.filteredEvents = self.db.events
-        self.tableView.reloadData()
+        self.filteredOrganizations = self.db.organizations
+        tableView.reloadData()
     }
-
+    
+    // MARK: - Table view data source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if searchController.isActive && searchController.searchBar.text != "" {
-            return filteredEvents.count
+            return filteredOrganizations.count
         }
-        return db.events.count
+        return db.organizations.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "orgCell", for: indexPath) as! OrganizationTableViewCell
         
-        let event = db.events[indexPath.row]
+        let org: Organization
         
-        cell.event = event
-        cell.titleLabel.text = event.title
-        cell.timeLabel.text = event.shortTimestamp
-        cell.descriptionLabel.text = event.description
-        cell.locationLabel.text = event.locationName
-        cell.setFavoriteImage()
+        if searchController.isActive && searchController.searchBar.text != "" {
+            org = filteredOrganizations[indexPath.row]
+        } else {
+            org = db.organizations[indexPath.row]
+        }
+        
+        //Set the name of the cell
+        cell.nameLabel.text = org.name
+        
+        //Set the location of the cell
+        cell.locationLabel.text = org.location
+        
+        cell.bioLabel.text = org.briefBio
         
         return cell
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let event: Event
+        let org: Organization
         if searchController.isActive && searchController.searchBar.text != "" {
-            event = filteredEvents[indexPath.row]
+            org = filteredOrganizations[indexPath.row]
         } else {
-            event = db.events[indexPath.row]
+            org = db.organizations[indexPath.row]
         }
         
-        delegate.didSelectEvent(event: event)
+        delegate.didSelectOrg(organization: org)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredEvents.removeAll()
-        filteredEvents = db.events.filter { event in
-            return event.title.lowercased().contains(searchText.lowercased())
+        filteredOrganizations.removeAll()
+        filteredOrganizations = db.organizations.filter { person in
+            return person.username.lowercased().contains(searchText.lowercased())
         }
         
         tableView.reloadData()
@@ -95,15 +106,4 @@ class EventsTableViewController: UITableViewController, UISearchResultsUpdating 
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

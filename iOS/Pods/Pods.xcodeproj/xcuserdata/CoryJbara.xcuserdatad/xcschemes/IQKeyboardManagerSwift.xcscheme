@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "965699190112DDBD9B7864D091660DBC"
-               BuildableName = "ActionSheetPicker_3_0.framework"
-               BlueprintName = "ActionSheetPicker-3.0"
+               BlueprintIdentifier = "4DC059E04CBA98AEDDB5C34E02D551E9"
+               BuildableName = "IQKeyboardManagerSwift.framework"
+               BlueprintName = "IQKeyboardManagerSwift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "965699190112DDBD9B7864D091660DBC"
-            BuildableName = "ActionSheetPicker_3_0.framework"
-            BlueprintName = "ActionSheetPicker-3.0"
+            BlueprintIdentifier = "4DC059E04CBA98AEDDB5C34E02D551E9"
+            BuildableName = "IQKeyboardManagerSwift.framework"
+            BlueprintName = "IQKeyboardManagerSwift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4DC059E04CBA98AEDDB5C34E02D551E9"
+            BuildableName = "IQKeyboardManagerSwift.framework"
+            BlueprintName = "IQKeyboardManagerSwift"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

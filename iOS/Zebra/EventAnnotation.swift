@@ -14,12 +14,14 @@ class EventAnnotation: NSObject, MKAnnotation {
     let locationName: String
     let discipline: String
     let coordinate: CLLocationCoordinate2D
+    let event: Event
     
-    init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
+    init(event: Event, title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
         self.title = title
         self.locationName = locationName
         self.discipline = discipline
         self.coordinate = coordinate
+        self.event = event
         
         super.init()
     }

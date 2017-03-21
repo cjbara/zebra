@@ -68,10 +68,7 @@ class CreateEventViewController: UIViewController {
             let isPublic = true // TODO
             let location = Location(latitude:45, longitude:-21) // TODO
         
-            let taggedPeople = [String]() // TODO
-            let taggedOrgs = [String]() // TODO
-        
-            db.createEvent(title: title!, location: location, date: self.date as NSDate, disease: disease!, organizer: org, taggedPeople: taggedPeople, taggedOrganizations: taggedOrgs, description: purpose!, isPublic: isPublic)
+            db.createEvent(title: title!, location: location, date: self.date as NSDate, disease: disease!, organizer: org, description: purpose!, isPublic: isPublic)
         
             let alert = UIAlertController(title: "Event Created!", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Great", style: UIAlertActionStyle.default, handler: nil))

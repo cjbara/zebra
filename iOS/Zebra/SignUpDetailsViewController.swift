@@ -35,8 +35,6 @@ class SignUpDetailsViewController: UIViewController {
         }
         
         accountType.selectedSegmentIndex = 1
-        
-        db.getDiseases()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,13 +59,10 @@ class SignUpDetailsViewController: UIViewController {
         let zipCode = zipCodeTextView.text!
         let aboutMe = aboutMeTextView.text!
         
-        let account = (accountType.selectedSegmentIndex == 0) ? "public" : "private"
-        var privacy = (nameOptions.selectedSegmentIndex == 0) ? "name" : "username"
+        let privacy = (accountType.selectedSegmentIndex == 0) ? true : false
+        let showName = (nameOptions.selectedSegmentIndex == 0) ? true : false
         
-        if name == "" {
-            privacy = "username"
-        }
-        db.updateUserData(name: name, zipCode: zipCode, about: aboutMe, account: account, privacy: privacy) { (success) in
+        db.updateUserData(name: name, zipCode: zipCode, about: aboutMe, privacy: privacy, showName: showName) { (success) in
             //Transition to Home VC
             self.performSegue(withIdentifier: "signUpToTabBar", sender: nil)
         }

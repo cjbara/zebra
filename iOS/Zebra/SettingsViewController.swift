@@ -46,19 +46,18 @@ class SettingsViewController: UIViewController {
         nameTextView.text = db.profile.name
         zipCodeTextView.text = db.profile.zipCode
         
-        if db.profile.account! == "public" {
+        if db.profile.privacy == true {
             accountType.selectedSegmentIndex = 0
-        } else if db.profile.account! == "private" {
+        } else {
             accountType.selectedSegmentIndex = 1
         }
         
-        if db.profile.privacy! == "name" {
+        if db.profile.showName == true {
             nameOptions.selectedSegmentIndex = 0
-        } else if db.profile.privacy! == "username" {
+        } else {
             nameOptions.selectedSegmentIndex = 1
         }
 
-        db.getDiseases()
     }
     
     @IBAction func navigationItemPicker(sender: UIButton) {
@@ -78,14 +77,10 @@ class SettingsViewController: UIViewController {
         let zipCode = zipCodeTextView.text!
         let aboutMe = aboutMeTextView.text!
         
-        let account = (accountType.selectedSegmentIndex == 0) ? "public" : "private"
-        var privacy = (nameOptions.selectedSegmentIndex == 0) ? "name" : "username"
+        let showName = (accountType.selectedSegmentIndex == 0) ? true : false
+        let privacy = (nameOptions.selectedSegmentIndex == 0) ? true : false
         
-        if name == "" {
-            privacy = "username"
-        }
-        
-        db.updateUserData(name: name, zipCode: zipCode, about: aboutMe, account: account, privacy: privacy) { (success) in
+        db.updateUserData(name: name, zipCode: zipCode, about: aboutMe, privacy: privacy, showName: showName) { (success) in
             self.view.makeToast("Successfully updated user data", duration: 3.0, position: .center)
         }
         

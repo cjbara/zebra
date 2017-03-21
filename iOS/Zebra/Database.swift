@@ -16,9 +16,10 @@ class Database {
     static let sharedInstance = Database()
     
     var profile = Profile()
-    var diseases = [String: String]()
     var people = [Profile]()
-    var diseasesLoaded = false
+    var events = [Event]()
+    var organizations = [Organization]()
+    var favoriteEvents = [String:Event]()
     
     func initialize() {
         if initialized == true{
@@ -26,6 +27,10 @@ class Database {
         }
         ref = FIRDatabase.database().reference()
         initialized = true
+        
+        getPeople()
+        getEvents()
+        getOrganizations()
     }
     
     func checkAuth(callback: @escaping ((Bool) -> Void)){
@@ -57,7 +62,7 @@ class Database {
                 self.profile = Profile(email: email, username: username)
                 
                 self.ref.child("userId/\(uid!)").setValue(username)
-
+                
                 callback(true)
             }
         }
@@ -99,32 +104,21 @@ class Database {
         }
     }
     
-    func getDiseases() {
-        ref.child("diseases").observeSingleEvent(of: .value, with: { (snapshot) in
-            let enumerator = snapshot.children
-            while let child = enumerator.nextObject() as? FIRDataSnapshot {
-                self.diseases[child.key] = (child.value as! String)
-            }
-            self.diseasesLoaded = true
-            print(self.diseases)
-        })
-    }
-    
-    func updateUserData(name: String, zipCode: String, about: String, account: String, privacy: String, callback: ((Bool) -> Void)?) {
+    func updateUserData(name: String, zipCode: String, about: String, privacy: Bool, showName: Bool, callback: ((Bool) -> Void)?) {
         
         let uid = FIRAuth.auth()?.currentUser?.uid
-        let userData = ["uid": uid!, "email": profile.email, "username": profile.username, "name": name, "zipCode": zipCode, "about": about, "account": account, "privacy": privacy] as [String : String]
+        let userData = ["uid": uid!, "email": profile.email, "username": profile.username, "name": name, "zipCode": zipCode, "about": about, "showName": showName, "privacy": privacy] as [String : Any]
         
         ref.child("users").child(profile.username).setValue(userData)
         
-        profile.updateUserData(name: name, zipCode: zipCode, about: about, account: account, privacy: privacy)
+        profile.updateUserData(name: name, zipCode: zipCode, about: about, privacy: privacy, showName: showName)
         
         if callback != nil {
             callback!(true)
         }
     }
     
-    func createEvent(title: String, location: Location, date: NSDate, disease: String, organizer: Organization, taggedPeople: [String], taggedOrganizations: [String], description: String, isPublic: Bool) {
+    func createEvent(title: String, location: Location, date: NSDate, disease: String, organizer: Organization, description: String, isPublic: Bool) {
         
         let eventData: [String: Any] = [
             "title": title,
@@ -139,20 +133,39 @@ class Database {
         
         let newref = ref.child("events").childByAutoId()
         newref.setValue(eventData)
-        //newref.child("taggedPeople")
-        //newref.child("taggedOrganizations")
     }
     
-    func getAllPeople(callback: (() -> Void)?) {
-        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
-            let enumerator = snapshot.children
-            while let child = enumerator.nextObject() as? FIRDataSnapshot {
-                
+    func getPeople() {
+        ref.child("users").observe(.value, with: { (snapshot) in
+            self.people.removeAll()
+            for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 let newPerson = Profile(userData: child)
-                
                 self.people.append(newPerson)
             }
-            callback!()
+        })
+    }
+    
+    func getEvents() {
+        ref.child("events").queryOrdered(byChild: "date").observe(.value, with: { (snapshot) in
+            self.events.removeAll()
+            for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                let newEvent = Event(snapshot: child)
+                
+                if self.favoriteEvents[newEvent.id] != nil {
+                    newEvent.favorite = true
+                }
+                self.events.append(newEvent)
+            }
+        })
+    }
+    
+    func getOrganizations() {
+        ref.child("organizations").observe(.value, with: { (snapshot) in
+            self.organizations.removeAll()
+            for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                let newOrg = Organization(snapshot: child)
+                self.organizations.append(newOrg)
+            }
         })
     }
     
@@ -163,19 +176,14 @@ class Database {
         })
     }
     
-    func getListOfEvents(callback: @escaping (([Event]) -> Void) ) {
-        var events: [Event] = []
-        ref.child("events").queryOrdered(byChild: "date").observeSingleEvent(of: .value, with: { (snapshot) in
-            for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
-                events.append(Event(snapshot: child))
-            }
-            callback(events)
-        })
+    func saveEventAsFavorite(event: Event) {
+        if self.favoriteEvents[event.id] == nil {
+            self.favoriteEvents[event.id] = event
+            self.ref.child("users").child(self.profile.username).child("events").child(event.id).setValue(event.id)
+        } else {
+            self.favoriteEvents.removeValue(forKey: event.id)
+            self.ref.child("users").child(self.profile.username).child("events").child(event.id).setValue(nil)
+        }
     }
-    
-    /*func saveEventAsFavorite(event: Event) {
-        ref.child("users").child("events").childByAutoId().setValue(<#T##value: Any?##Any?#>)
-        ref.child("events").child(event.id)
-    }*/
     
 }

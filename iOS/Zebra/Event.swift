@@ -11,12 +11,16 @@ import Firebase
 import CoreLocation
 
 class Event {
+    var id: String
     var date: Date
     var description: String
     var disease: String
     var isPublic: Bool
     var title: String
     var organizer: String
+    
+    var favorite: Bool = false
+    
     var locationName = "Hesburgh Library"
     var position: CLLocationCoordinate2D {
         //Gets random location within .01 lat and long of the Hesburg Library
@@ -27,27 +31,41 @@ class Event {
     
     var longTimestamp: String {
         let df = DateFormatter()
-        df.dateFormat = "EEEE, MMM d"
+        df.dateFormat = "EEEE, M d"
         let df2 = DateFormatter()
         df2.dateFormat = "h:mm a"
         
-        return df.string(from: date) + "at " + df2.string(from: date)
+        return df.string(from: date) + "\nat " + df2.string(from: date)
     }
     
     var shortTimestamp: String {
         let df = DateFormatter()
-        df.dateFormat = "M/d h:mm a"
+        df.dateFormat = "M/d"
+        let df2 = DateFormatter()
+        df2.dateFormat = "h:mm a"
         
-        return df.string(from: date)
+        return df.string(from: date) + " at " + df2.string(from: date)
+
     }
     
     init(snapshot: FIRDataSnapshot) {
+        self.id = snapshot.key
         self.date = Date(timeIntervalSince1970: snapshot.childSnapshot(forPath: "date").value as! Double)
         self.description = snapshot.childSnapshot(forPath: "description").value as! String
         self.title = snapshot.childSnapshot(forPath: "title").value as! String
         self.organizer = snapshot.childSnapshot(forPath: "organizerUsername").value as! String
         self.isPublic = snapshot.childSnapshot(forPath: "isPublic").value as! Bool
         self.disease = snapshot.childSnapshot(forPath: "disease").value as! String
+    }
+    
+    init() {
+        id = ""
+        date = Date()
+        description = "To learn about stuff"
+        disease = "Disease"
+        isPublic = true
+        title = "Event Name"
+        organizer = "Me"
     }
     
 //    let locationName = "Hesburgh Library Notre Dame"

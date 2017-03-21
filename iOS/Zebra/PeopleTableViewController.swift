@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
+
+protocol PeopleTableViewControllerDelegate{
+    func didSelectPerson(person: Profile)
+}
 
 class PeopleTableViewController: UITableViewController, UISearchResultsUpdating {
+    
+    var delegate: PeopleTableViewControllerDelegate! = nil
     
     var filteredPeople = [Profile]()
     let db = Database.sharedInstance
@@ -16,27 +23,24 @@ class PeopleTableViewController: UITableViewController, UISearchResultsUpdating 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
-        db.getAllPeople {
-            self.filteredPeople = self.db.people
-            self.tableView.reloadData()
-        }
+        refresh()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        refresh()
+    }
+    
+    func refresh() {
+        self.filteredPeople = self.db.people
+        self.tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -66,28 +70,40 @@ class PeopleTableViewController: UITableViewController, UISearchResultsUpdating 
             person = db.people[indexPath.row]
         }
         
-        cell.usernameLabel.text = person.username
+        //Set the name of the cell
+        if person.showName == true {
+            cell.usernameLabel.text = person.name
+        } else {
+            cell.usernameLabel.text = person.username
+        }
+        
+        //Set the location of the cell
         cell.locationLabel.text = person.location
+        
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(person.zipCode) {
+            (placemarks, error) -> Void in
+            if let placemark = placemarks?[0] {
+                let city: String = placemark.addressDictionary?["City"] as! String
+                let state: String = placemark.addressDictionary!["State"] as! String
+                cell.locationLabel.text = "\(city), \(state)"
+            }
+        }
         
         return cell
     }
 
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        let vc = segue.destination as! PersonViewController
-        let cell = sender as! PeopleTableViewCell
-        let indexPath = self.tableView.indexPath(for: cell)!
-        
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let person: Profile
         if searchController.isActive && searchController.searchBar.text != "" {
-            vc.person = filteredPeople[indexPath.row]
+            person = filteredPeople[indexPath.row]
         } else {
-            vc.person = db.people[indexPath.row]
+            person = db.people[indexPath.row]
         }
+        
+        delegate.didSelectPerson(person: person)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

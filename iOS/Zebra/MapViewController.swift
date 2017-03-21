@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Toast_Swift
 
 class MapViewController: UIViewController, MKMapViewDelegate {
 
@@ -21,17 +22,16 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let message = "Welcome, \(db.profile.username)"
+        self.view.makeToast(message, duration: 3.0, position: .center)
+        
         mapView.delegate = self
         
-        db.getListOfEvents { (newEvents) in
-            self.events = newEvents
-            
-            self.loadEventPins()
-        }
-        
+        self.events = db.events
+        self.loadEventPins()
         
 
-        // set initial location in Honolulu
+        // set initial location as ND
         let initialLocation = CLLocation(latitude: 41.7024, longitude: -86.2342)
         centerMapOnLocation(location: initialLocation)
     }
@@ -62,20 +62,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        //I don't know how to convert this if condition to swift 1.2 but you can remove it since you don't have any other button in the annotation view
         if (control as? UIButton)?.buttonType == UIButtonType.detailDisclosure {
             mapView.deselectAnnotation(view.annotation, animated: false)
-            performSegue(withIdentifier: "showEventDetailFromMap", sender: self)
+            let eventAnnotation = view.annotation as! EventAnnotation
+            performSegue(withIdentifier: "showEventDetailFromMap", sender: eventAnnotation.event)
         }
     }
 
     func loadEventPins() {
         for event in events {
             // show artwork on map
-            let newEvent = EventAnnotation(title: event.title,
-                                          locationName: event.locationName,
-                                          discipline: event.longTimestamp,
-                                          coordinate: event.position)
+            let newEvent = EventAnnotation(event: event, title: event.title, locationName: event.locationName, discipline: event.longTimestamp, coordinate: event.position)
             
             mapView.addAnnotation(newEvent)
         }
@@ -88,6 +85,9 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let event = sender as! Event
+        let dest = segue.destination as! EventDetailViewController
+        dest.event = event
     }
 
 }

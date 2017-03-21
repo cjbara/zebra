@@ -18,6 +18,11 @@
 		9131FC0D1E6393B500234B4C /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FC0C1E6393B500234B4C /* PersonViewController.swift */; };
 		9131FC0F1E67851100234B4C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FC0E1E67851100234B4C /* MapViewController.swift */; };
 		9131FC131E67883C00234B4C /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FC121E67883C00234B4C /* EventAnnotation.swift */; };
+		91839F7A1E8053D4007634B5 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91839F791E8053D4007634B5 /* EventDetailViewController.swift */; };
+		9199AC471E8061B5004E3566 /* MyEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199AC461E8061B5004E3566 /* MyEventsTableViewController.swift */; };
+		9199AC4A1E80BE7F004E3566 /* OrganizationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199AC491E80BE7F004E3566 /* OrganizationsTableViewController.swift */; };
+		9199AC4E1E80BEA3004E3566 /* OrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199AC4D1E80BEA3004E3566 /* OrganizationTableViewCell.swift */; };
+		9199AC501E80BEB4004E3566 /* OrganizationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199AC4F1E80BEB4004E3566 /* OrganizationDetailViewController.swift */; };
 		919BE6E61E492D4100660461 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6E51E492D4100660461 /* Database.swift */; };
 		919BE6E81E492D9700660461 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 919BE6E71E492D9700660461 /* GoogleService-Info.plist */; };
 		919BE6EA1E49326800660461 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6E91E49326800660461 /* LoginViewController.swift */; };
@@ -25,7 +30,6 @@
 		919BE6EE1E49447900660461 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6ED1E49447900660461 /* SignUpViewController.swift */; };
 		919BE6F01E49448600660461 /* SignUpDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6EF1E49448600660461 /* SignUpDetailsViewController.swift */; };
 		919BE6F21E49450F00660461 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919BE6F11E49450F00660461 /* Profile.swift */; };
-		91A0177E1E5398B500F08E58 /* AuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0177D1E5398B500F08E58 /* AuthHandler.swift */; };
 		91A017801E5A5BAA00F08E58 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A0177F1E5A5BAA00F08E58 /* HomeViewController.swift */; };
 		91A017841E5A5D4400F08E58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A017831E5A5D4400F08E58 /* SettingsViewController.swift */; };
 		91D330911E5BA3D400F3F7A5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D330901E5BA3D400F3F7A5 /* Location.swift */; };
@@ -51,6 +55,11 @@
 		9131FC0C1E6393B500234B4C /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		9131FC0E1E67851100234B4C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9131FC121E67883C00234B4C /* EventAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
+		91839F791E8053D4007634B5 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		9199AC461E8061B5004E3566 /* MyEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventsTableViewController.swift; sourceTree = "<group>"; };
+		9199AC491E80BE7F004E3566 /* OrganizationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsTableViewController.swift; sourceTree = "<group>"; };
+		9199AC4D1E80BEA3004E3566 /* OrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationTableViewCell.swift; sourceTree = "<group>"; };
+		9199AC4F1E80BEB4004E3566 /* OrganizationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationDetailViewController.swift; sourceTree = "<group>"; };
 		919BE6E51E492D4100660461 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		919BE6E71E492D9700660461 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		919BE6E91E49326800660461 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +67,6 @@
 		919BE6ED1E49447900660461 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		919BE6EF1E49448600660461 /* SignUpDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpDetailsViewController.swift; sourceTree = "<group>"; };
 		919BE6F11E49450F00660461 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		91A0177D1E5398B500F08E58 /* AuthHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthHandler.swift; sourceTree = "<group>"; };
 		91A0177F1E5A5BAA00F08E58 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		91A017831E5A5D4400F08E58 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		91D330901E5BA3D400F3F7A5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -85,7 +93,9 @@
 			children = (
 				23F70ADD1E5BD4180040AB43 /* CreateEventViewController.swift */,
 				91E214421E6D202F00A3A731 /* EventsTableViewController.swift */,
+				9199AC461E8061B5004E3566 /* MyEventsTableViewController.swift */,
 				91E214441E6D203E00A3A731 /* EventTableViewCell.swift */,
+				91839F791E8053D4007634B5 /* EventDetailViewController.swift */,
 			);
 			name = Event;
 			sourceTree = "<group>";
@@ -147,6 +157,16 @@
 			name = "Map Annotations";
 			sourceTree = "<group>";
 		};
+		9199AC481E80BE5C004E3566 /* Organizations */ = {
+			isa = PBXGroup;
+			children = (
+				9199AC491E80BE7F004E3566 /* OrganizationsTableViewController.swift */,
+				9199AC4D1E80BEA3004E3566 /* OrganizationTableViewCell.swift */,
+				9199AC4F1E80BEB4004E3566 /* OrganizationDetailViewController.swift */,
+			);
+			name = Organizations;
+			sourceTree = "<group>";
+		};
 		919BE6E11E492CF800660461 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +175,6 @@
 				91E214461E6D20EA00A3A731 /* Event.swift */,
 				919BE6F11E49450F00660461 /* Profile.swift */,
 				91D330921E5BA4A200F3F7A5 /* Organization.swift */,
-				91A0177D1E5398B500F08E58 /* AuthHandler.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -164,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				9131FC101E67851600234B4C /* Map */,
+				9199AC481E80BE5C004E3566 /* Organizations */,
 				9131FC071E638A4400234B4C /* People */,
 				23F70ADF1E5BD4260040AB43 /* Event */,
 				919BE6F31E49474E00660461 /* Signup/Login */,
@@ -371,16 +391,20 @@
 				9131FC091E638B6F00234B4C /* PeopleTableViewCell.swift in Sources */,
 				91E214451E6D203E00A3A731 /* EventTableViewCell.swift in Sources */,
 				23F70ADE1E5BD4180040AB43 /* CreateEventViewController.swift in Sources */,
-				91A0177E1E5398B500F08E58 /* AuthHandler.swift in Sources */,
 				91A017801E5A5BAA00F08E58 /* HomeViewController.swift in Sources */,
+				9199AC4A1E80BE7F004E3566 /* OrganizationsTableViewController.swift in Sources */,
 				9131FC131E67883C00234B4C /* EventAnnotation.swift in Sources */,
 				91E214431E6D202F00A3A731 /* EventsTableViewController.swift in Sources */,
 				9131FC0D1E6393B500234B4C /* PersonViewController.swift in Sources */,
 				919BE6F01E49448600660461 /* SignUpDetailsViewController.swift in Sources */,
 				919BE6EC1E49336700660461 /* HomeTabBarController.swift in Sources */,
 				91D330931E5BA4A200F3F7A5 /* Organization.swift in Sources */,
+				9199AC4E1E80BEA3004E3566 /* OrganizationTableViewCell.swift in Sources */,
 				9117EC091E48F04C0009A3B2 /* AppDelegate.swift in Sources */,
 				91E214471E6D20EA00A3A731 /* Event.swift in Sources */,
+				91839F7A1E8053D4007634B5 /* EventDetailViewController.swift in Sources */,
+				9199AC471E8061B5004E3566 /* MyEventsTableViewController.swift in Sources */,
+				9199AC501E80BEB4004E3566 /* OrganizationDetailViewController.swift in Sources */,
 				9131FC0F1E67851100234B4C /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4C7811A298BD8BE78FD2206B /* Pods-Zebra.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 499G2MTD9Y;
 				INFOPLIST_FILE = Zebra/Info.plist;
@@ -516,6 +541,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8B3DF8029B654086ECC82AC1 /* Pods-Zebra.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 499G2MTD9Y;
 				INFOPLIST_FILE = Zebra/Info.plist;

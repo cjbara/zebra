@@ -16,8 +16,8 @@ class Profile {
     var name: String = ""
     var zipCode: String = ""
     var aboutMe: String = ""
-    var account: String? = nil
-    var privacy: String? = nil
+    var showName: Bool = false
+    var privacy: Bool = false
     var location: String = ""
     var disease: String = "Cystic Fibrosis"
     
@@ -30,7 +30,7 @@ class Profile {
             if let placemark = placemarks?[0] {
                 let city: String = placemark.addressDictionary?["City"] as! String
                 let state: String = placemark.addressDictionary!["State"] as! String
-                self.location = "\(city), \(state) \(self.zipCode)"
+                self.location = "\(city), \(state)"
             } else {
                 self.location = self.zipCode
             }
@@ -54,8 +54,8 @@ class Profile {
         self.name = userData.childSnapshot(forPath: "name").value as! String
         self.zipCode = userData.childSnapshot(forPath: "zipCode").value as! String
         self.aboutMe = userData.childSnapshot(forPath: "about").value as! String
-        self.account = userData.childSnapshot(forPath: "account").value as? String
-        self.privacy = userData.childSnapshot(forPath: "privacy").value as? String
+        self.showName = userData.childSnapshot(forPath: "showName").value as! Bool
+        self.privacy = userData.childSnapshot(forPath: "privacy").value as! Bool
         
         setLocation()
     }
@@ -66,17 +66,18 @@ class Profile {
         name = ""
         zipCode = ""
         aboutMe = ""
-        account = nil
-        privacy = nil
+        showName = false
+        privacy = false
     }
     
-    func updateUserData(name: String, zipCode: String, about: String, account: String, privacy: String) {
+    func updateUserData(name: String, zipCode: String, about: String, privacy: Bool, showName: Bool) {
         self.name = name
         self.zipCode = zipCode
         self.aboutMe = about
-        self.account = account
+        self.showName = showName
         self.privacy = privacy
         
         setLocation()
     }
+    
 }
