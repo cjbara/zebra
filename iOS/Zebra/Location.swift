@@ -7,13 +7,18 @@
 //
 
 import Foundation
+import CoreLocation
 
-class Location {
+class MyLocation {
     var latitude: Double
     var longitude: Double
+    var name: String = ""
+    var zipCode: String = ""
     
-    init(latitude: Double, longitude: Double) {
-        self.latitude = latitude
-        self.longitude = longitude
+    init(mark: CLPlacemark) {
+        self.name = mark.name!
+        self.zipCode = mark.postalCode!
+        self.latitude = mark.location!.coordinate.latitude
+        self.longitude = mark.location!.coordinate.longitude
     }
 }

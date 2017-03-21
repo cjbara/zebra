@@ -15,19 +15,13 @@ class Event {
     var date: Date
     var description: String
     var disease: String
-    var isPublic: Bool
     var title: String
     var organizer: String
     
     var favorite: Bool = false
     
-    var locationName = "Hesburgh Library"
-    var position: CLLocationCoordinate2D {
-        //Gets random location within .01 lat and long of the Hesburg Library
-        let lat = 41.7024 + Double((Double(arc4random_uniform(10)) - 5) / 1000.0)
-        let lon = -86.2342 + Double((Double(arc4random_uniform(10)) - 5) / 1000.0)
-        return CLLocationCoordinate2D(latitude: lat, longitude: lon)
-    }
+    var location: CLLocationCoordinate2D
+    var locationName: String
     
     var longTimestamp: String {
         let df = DateFormatter()
@@ -53,9 +47,15 @@ class Event {
         self.date = Date(timeIntervalSince1970: snapshot.childSnapshot(forPath: "date").value as! Double)
         self.description = snapshot.childSnapshot(forPath: "description").value as! String
         self.title = snapshot.childSnapshot(forPath: "title").value as! String
-        self.organizer = snapshot.childSnapshot(forPath: "organizerUsername").value as! String
-        self.isPublic = snapshot.childSnapshot(forPath: "isPublic").value as! Bool
+        self.organizer = snapshot.childSnapshot(forPath: "organization").value as! String
         self.disease = snapshot.childSnapshot(forPath: "disease").value as! String
+        
+        let latitude = snapshot.childSnapshot(forPath: "latitude").value as! Double
+        let longitude = snapshot.childSnapshot(forPath: "longitude").value as! Double
+        
+        self.location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        self.locationName = snapshot.childSnapshot(forPath: "locationName").value as! String
+
     }
     
     init() {
@@ -63,22 +63,10 @@ class Event {
         date = Date()
         description = "To learn about stuff"
         disease = "Disease"
-        isPublic = true
         title = "Event Name"
         organizer = "Me"
+        location = CLLocationCoordinate2D()
+        locationName = "Hesburgh Library"
     }
-    
-//    let locationName = "Hesburgh Library Notre Dame"
-//    
-//    let geocoder = CLGeocoder()
-//    geocoder.geocodeAddressString(locationName) { (placemarks, error) in
-//    print(placemarks)
-//    if let placemark = placemarks?[0] {
-//    let locationLatLon: CLLocation = placemark.location!
-//    print(locationLatLon)
-//    } else {
-//    self.view.makeToast("Could not find location: locationName")
-//    }
-//    }
     
 }

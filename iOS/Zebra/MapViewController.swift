@@ -15,7 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     let db = Database.sharedInstance
     
     @IBOutlet var mapView: MKMapView!
-    let regionRadius: CLLocationDistance = 1000
+    let regionRadius: CLLocationDistance = 2000
     
     var events: [Event] = []
     
@@ -27,17 +27,24 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         mapView.delegate = self
         
-        self.events = db.events
-        self.loadEventPins()
+        refresh()
         
-
         // set initial location as ND
-        let initialLocation = CLLocation(latitude: 41.7024, longitude: -86.2342)
+        let initialLocation = db.profile.coordinates
         centerMapOnLocation(location: initialLocation)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        refresh()
+    }
+    
+    func refresh() {
+        self.events = db.events
+        self.loadEventPins()
+    }
 
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+    func centerMapOnLocation(location: CLLocationCoordinate2D) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
@@ -72,7 +79,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func loadEventPins() {
         for event in events {
             // show artwork on map
-            let newEvent = EventAnnotation(event: event, title: event.title, locationName: event.locationName, discipline: event.longTimestamp, coordinate: event.position)
+            let newEvent = EventAnnotation(event: event, title: event.title, locationName: event.locationName, discipline: event.longTimestamp, coordinate: event.location)
             
             mapView.addAnnotation(newEvent)
         }

@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import CoreLocation
 
 class Database {
     
@@ -27,10 +28,6 @@ class Database {
         }
         ref = FIRDatabase.database().reference()
         initialized = true
-        
-        getPeople()
-        getEvents()
-        getOrganizations()
     }
     
     func checkAuth(callback: @escaping ((Bool) -> Void)){
@@ -41,12 +38,15 @@ class Database {
                     
                     //create profile
                     self.profile = Profile(userData: userData)
+                    self.getPeople()
+                    self.getEvents()
+                    self.getOrganizations()
                     callback(true)
                 })
             })
         } else {
             callback(false)
-        }
+       }
     }
     
     func createUser(email: String, password: String, username: String, callback: @escaping (Bool) -> Void) {
@@ -85,6 +85,9 @@ class Database {
                         
                         //create profile
                         self.profile = Profile(userData: userData)
+                        self.getPeople()
+                        self.getEvents()
+                        self.getOrganizations()
                         callback(true)
                     })
                 })
@@ -104,35 +107,59 @@ class Database {
         }
     }
     
-    func updateUserData(name: String, zipCode: String, about: String, privacy: Bool, showName: Bool, callback: ((Bool) -> Void)?) {
-        
-        let uid = FIRAuth.auth()?.currentUser?.uid
-        let userData = ["uid": uid!, "email": profile.email, "username": profile.username, "name": name, "zipCode": zipCode, "about": about, "showName": showName, "privacy": privacy] as [String : Any]
-        
-        ref.child("users").child(profile.username).setValue(userData)
-        
-        profile.updateUserData(name: name, zipCode: zipCode, about: about, privacy: privacy, showName: showName)
-        
-        if callback != nil {
-            callback!(true)
+    func setUserLocation(zipCode: String, callback: @escaping (String, CLLocationCoordinate2D) -> ()) {
+        var location = zipCode
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(zipCode) {
+            (placemarks, error) -> Void in
+            if let placemark = placemarks?[0] {
+                
+                let place = placemark.location?.coordinate
+                
+                let city: String = placemark.addressDictionary?["City"] as! String
+                let state: String = placemark.addressDictionary!["State"] as! String
+                location = "\(city), \(state)"
+                callback(location, place!)
+            } else {
+                callback(zipCode, CLLocationCoordinate2D(latitude: 41.7056, longitude: -86.2353))
+            }
         }
     }
     
-    func createEvent(title: String, location: Location, date: NSDate, disease: String, organizer: Organization, description: String, isPublic: Bool) {
+    func updateUserData(name: String, zipCode: String, about: String, privacy: Bool, showName: Bool, callback: ((Bool) -> Void)?) {
+        
+        setUserLocation(zipCode: zipCode) { (location, placemark) in
+            let uid = FIRAuth.auth()?.currentUser?.uid
+            let userData = ["uid": uid!, "email": self.profile.email, "username": self.profile.username, "name": name, "zipCode": zipCode, "about": about, "showName": showName, "privacy": privacy, "location": location, "latitude": placemark.latitude, "longitude": placemark.longitude] as [String : Any]
+            
+            self.ref.child("users").child(self.profile.username).setValue(userData)
+            
+            self.profile.updateUserData(name: name, zipCode: zipCode, about: about, privacy: privacy, showName: showName, location: location, latitude: placemark.latitude, longitude: placemark.longitude)
+            
+            if callback != nil {
+                callback!(true)
+            }
+        }
+    }
+    
+    func createEvent(title: String, mylocation: MyLocation, date: NSDate, disease: String, organizer: String, description: String) {
         
         let eventData: [String: Any] = [
             "title": title,
-            "latitude": location.latitude,
-            "longitude": location.longitude,
+            "latitude": mylocation.latitude,
+            "longitude": mylocation.longitude,
             "date": date.timeIntervalSince1970,
             "disease": disease,
-            "organizerUsername": organizer.username,
+            "organization": organizer,
             "description": description,
-            "isPublic": isPublic
+            "locationName": mylocation.name
         ]
         
         let newref = ref.child("events").childByAutoId()
         newref.setValue(eventData)
+        
+        //Save this to the list of your events after you create it
+        ref.child("users").child(profile.username).child("events").child(newref.key).setValue(newref.key)
     }
     
     func getPeople() {

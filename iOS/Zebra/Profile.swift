@@ -20,23 +20,13 @@ class Profile {
     var privacy: Bool = false
     var location: String = ""
     var disease: String = "Cystic Fibrosis"
-    
-    func setLocation() {
-        location = zipCode
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(zipCode) {
-            (placemarks, error) -> Void in
-            print("Got address for \(self.username)")
-            if let placemark = placemarks?[0] {
-                let city: String = placemark.addressDictionary?["City"] as! String
-                let state: String = placemark.addressDictionary!["State"] as! String
-                self.location = "\(city), \(state)"
-            } else {
-                self.location = self.zipCode
-            }
-        }
-    }
 
+    var latitude: Double = 0
+    var longitude: Double = 0
+    
+    var coordinates: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
     
     init() {
         self.email = ""
@@ -57,7 +47,9 @@ class Profile {
         self.showName = userData.childSnapshot(forPath: "showName").value as! Bool
         self.privacy = userData.childSnapshot(forPath: "privacy").value as! Bool
         
-        setLocation()
+        self.location = userData.childSnapshot(forPath: "location").value as! String
+        self.latitude = userData.childSnapshot(forPath: "latitude").value as! Double
+        self.longitude = userData.childSnapshot(forPath: "longitude").value as! Double
     }
     
     func reset() {
@@ -68,16 +60,22 @@ class Profile {
         aboutMe = ""
         showName = false
         privacy = false
+        
+        location = ""
+        latitude = 0
+        longitude = 0
     }
     
-    func updateUserData(name: String, zipCode: String, about: String, privacy: Bool, showName: Bool) {
+    func updateUserData(name: String, zipCode: String, about: String, privacy: Bool, showName: Bool, location: String, latitude: Double, longitude: Double) {
         self.name = name
         self.zipCode = zipCode
         self.aboutMe = about
         self.showName = showName
         self.privacy = privacy
         
-        setLocation()
+        self.location = location
+        self.latitude = latitude
+        self.longitude = longitude
     }
     
 }
