@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import CoreLocation
 
 class Organization {
     var name: String = ""
@@ -16,6 +17,12 @@ class Organization {
     var fullBio: String = ""
     var diseases: String = ""
     var location: String = ""
+    var latitude: Double = 0
+    var longitude: Double = 0
+    
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
     
     init() {
         
@@ -33,6 +40,9 @@ class Organization {
         self.fullBio = snapshot.childSnapshot(forPath: "fullBio").value as! String
         self.diseases = snapshot.childSnapshot(forPath: "diseases").value as! String
         self.location = snapshot.childSnapshot(forPath: "location").value as! String
+        
+        self.latitude = snapshot.childSnapshot(forPath: "latitude").value as! Double
+        self.longitude = snapshot.childSnapshot(forPath: "longitude").value as! Double
     }
     
     

@@ -46,7 +46,7 @@ class Database {
             })
         } else {
             callback(false)
-       }
+        }
     }
     
     func createUser(email: String, password: String, username: String, callback: @escaping (Bool) -> Void) {
@@ -56,12 +56,13 @@ class Database {
             } else {
                 //Insert data into firebase
                 let uid = FIRAuth.auth()?.currentUser?.uid
-                let userData = ["uid": uid!, "email": email, "username": username] as [String : String]
+                
+                let userData = ["uid": uid!, "email": email, "username": username, "name": "", "zipCode": "", "about": "", "showName": true, "privacy": true, "location": "", "latitude": 0, "longitude": 0] as [String : Any]
                 
                 self.ref.child("users/\(username)").setValue(userData)
-                self.profile = Profile(email: email, username: username)
-                
                 self.ref.child("userId/\(uid!)").setValue(username)
+
+                self.profile = Profile(email: email, username: username)
                 
                 callback(true)
             }
@@ -97,10 +98,26 @@ class Database {
         }
     }
     
+    func signInBeforeSignUp(email: String, password: String, callback: @escaping (Bool) -> Void ) {
+        FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+            if (error == nil) {
+                self.ref.child("userId").child((user?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+                    let username = snapshot.value as! String
+                    self.ref.child("users").child(username).observeSingleEvent(of: .value, with: { (userData) in
+                        callback(true)
+                    })
+                })
+            } else {
+                callback(false)
+            }
+        }
+    }
+    
     func signOut(callback: @escaping (Bool) -> Void ) {
         do {
             try FIRAuth.auth()?.signOut()
             profile.reset()
+            ref.removeAllObservers()
             callback(true)
         } catch {
             callback(false)

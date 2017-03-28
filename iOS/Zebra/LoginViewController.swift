@@ -9,16 +9,24 @@
 import UIKit
 import Toast_Swift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var username: UITextField!
     @IBOutlet var password: UITextField!
     
     var db: Database = Database.sharedInstance
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         db.initialize()
+        
+        self.username.delegate = self
+        self.password.delegate = self
         
         db.checkAuth(callback: { (success) in
             if success == true {
@@ -43,12 +51,6 @@ class LoginViewController: UIViewController {
         }
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation

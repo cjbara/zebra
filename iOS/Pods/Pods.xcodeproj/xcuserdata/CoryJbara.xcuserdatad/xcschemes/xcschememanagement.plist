@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>LocationPicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +42,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>06736DA653FC90221E73A7A589936E5E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>153A65327C0B21B8A8BC96B2805A772B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4DC059E04CBA98AEDDB5C34E02D551E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6270B7E559D4DAE3057E9BC530994201</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>63EA05F62DED0B37AD0AA0C8B96935BA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>896CC8F0CE94AC1F05AF0E05E9A7BADB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

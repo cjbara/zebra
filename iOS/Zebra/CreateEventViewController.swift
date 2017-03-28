@@ -11,7 +11,7 @@ import ActionSheetPicker_3_0
 import CoreLocation
 import LocationPicker
 
-class CreateEventViewController: UIViewController {
+class CreateEventViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var diseaseTextView: UITextView!
@@ -24,11 +24,24 @@ class CreateEventViewController: UIViewController {
     
     var db: Database = Database.sharedInstance
     
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
     var date: Date? = nil
     var myLocation: MyLocation? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleTextView.delegate = self
+        diseaseTextView.delegate = self
+        sponsorTextView.delegate = self
+        purposeTextView.delegate = self
         
         self.timeLabel.text = ""
         self.locationLabel.text = ""

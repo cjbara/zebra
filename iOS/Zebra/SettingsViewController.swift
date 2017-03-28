@@ -10,7 +10,7 @@ import UIKit
 import Toast_Swift
 import ActionSheetPicker_3_0
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     let db = Database.sharedInstance
     
@@ -31,12 +31,28 @@ class SettingsViewController: UIViewController {
     @IBOutlet var zipCodeTextView: UITextField!
     @IBOutlet var accountType: UISegmentedControl!
     @IBOutlet var nameOptions: UISegmentedControl!
-    @IBOutlet var selectDisease: UIButton!
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         db.initialize()
+        
+        nameTextView.delegate = self
+        zipCodeTextView.delegate = self
+        aboutMeTextView.delegate = self
         
         aboutMeTextView.layer.cornerRadius = 4;
         aboutMeTextView.layer.borderColor = UIColor.black.cgColor
@@ -58,17 +74,6 @@ class SettingsViewController: UIViewController {
             nameOptions.selectedSegmentIndex = 1
         }
 
-    }
-    
-    @IBAction func navigationItemPicker(sender: UIButton) {
-        ActionSheetStringPicker.show(withTitle: "Disease of Interest", rows: ["One", "Two", "A lot"], initialSelection: 1, doneBlock: {
-            picker, value, index in
-            
-            print("value = \(value)")
-            print("index = \(index)")
-            print("picker = \(picker)")
-            return
-        }, cancel: { ActionStringCancelBlock in return }, origin: sender)
     }
     
     @IBAction func updateInformation(_ sender: UIBarButtonItem) {

@@ -13,6 +13,8 @@
 		9117EC0E1E48F04D0009A3B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC0C1E48F04D0009A3B2 /* Main.storyboard */; };
 		9117EC101E48F04D0009A3B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */; };
 		9117EC131E48F04D0009A3B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9117EC111E48F04D0009A3B2 /* LaunchScreen.storyboard */; };
+		911FC6921E831D0E0024C1AF /* PersonAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FC6911E831D0E0024C1AF /* PersonAnnotation.swift */; };
+		911FC6941E831D190024C1AF /* OrgAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911FC6931E831D190024C1AF /* OrgAnnotation.swift */; };
 		9131FC091E638B6F00234B4C /* PeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FC081E638B6F00234B4C /* PeopleTableViewCell.swift */; };
 		9131FC0B1E638B8100234B4C /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FC0A1E638B8100234B4C /* PeopleTableViewController.swift */; };
 		9131FC0D1E6393B500234B4C /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9131FC0C1E6393B500234B4C /* PersonViewController.swift */; };
@@ -50,6 +52,8 @@
 		9117EC0F1E48F04D0009A3B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9117EC121E48F04D0009A3B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9117EC141E48F04D0009A3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		911FC6911E831D0E0024C1AF /* PersonAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonAnnotation.swift; sourceTree = "<group>"; };
+		911FC6931E831D190024C1AF /* OrgAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrgAnnotation.swift; sourceTree = "<group>"; };
 		9131FC081E638B6F00234B4C /* PeopleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewCell.swift; sourceTree = "<group>"; };
 		9131FC0A1E638B8100234B4C /* PeopleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
 		9131FC0C1E6393B500234B4C /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				9131FC121E67883C00234B4C /* EventAnnotation.swift */,
+				911FC6911E831D0E0024C1AF /* PersonAnnotation.swift */,
+				911FC6931E831D190024C1AF /* OrgAnnotation.swift */,
 			);
 			name = "Map Annotations";
 			sourceTree = "<group>";
@@ -291,7 +297,7 @@
 				TargetAttributes = {
 					9117EC041E48F04C0009A3B2 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 34TZ54QCUD;
+						DevelopmentTeam = 499G2MTD9Y;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -381,6 +387,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				911FC6941E831D190024C1AF /* OrgAnnotation.swift in Sources */,
 				919BE6EA1E49326800660461 /* LoginViewController.swift in Sources */,
 				91D330911E5BA3D400F3F7A5 /* Location.swift in Sources */,
 				919BE6E61E492D4100660461 /* Database.swift in Sources */,
@@ -394,6 +401,7 @@
 				91A017801E5A5BAA00F08E58 /* HomeViewController.swift in Sources */,
 				9199AC4A1E80BE7F004E3566 /* OrganizationsTableViewController.swift in Sources */,
 				9131FC131E67883C00234B4C /* EventAnnotation.swift in Sources */,
+				911FC6921E831D0E0024C1AF /* PersonAnnotation.swift in Sources */,
 				91E214431E6D202F00A3A731 /* EventsTableViewController.swift in Sources */,
 				9131FC0D1E6393B500234B4C /* PersonViewController.swift in Sources */,
 				919BE6F01E49448600660461 /* SignUpDetailsViewController.swift in Sources */,
@@ -528,8 +536,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 34TZ54QCUD;
+				DEVELOPMENT_TEAM = 499G2MTD9Y;
 				INFOPLIST_FILE = Zebra/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = coryjbara.Zebra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -544,8 +553,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 34TZ54QCUD;
+				DEVELOPMENT_TEAM = 499G2MTD9Y;
 				INFOPLIST_FILE = Zebra/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = coryjbara.Zebra;
 				PRODUCT_NAME = "$(TARGET_NAME)";

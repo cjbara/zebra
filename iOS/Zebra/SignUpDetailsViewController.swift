@@ -10,7 +10,7 @@ import UIKit
 import Toast_Swift
 import ActionSheetPicker_3_0
 
-class SignUpDetailsViewController: UIViewController {
+class SignUpDetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
     var db: Database = Database.sharedInstance
     
@@ -19,12 +19,20 @@ class SignUpDetailsViewController: UIViewController {
     @IBOutlet var zipCodeTextView: UITextField!
     @IBOutlet var accountType: UISegmentedControl!
     @IBOutlet var nameOptions: UISegmentedControl!
-    @IBOutlet var selectDisease: UIButton!
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         db.initialize()
+        
+        aboutMeTextView.delegate = self
+        nameTextView.delegate = self
+        zipCodeTextView.delegate = self
         
         aboutMeTextView.layer.cornerRadius = 4;
         aboutMeTextView.layer.borderColor = UIColor.black.cgColor
@@ -41,17 +49,6 @@ class SignUpDetailsViewController: UIViewController {
         let message = "Welcome to Zebra, \(db.profile.username)"
         self.view.makeToast(message, duration: 3.0, position: .center)
     }
-    
-    @IBAction func navigationItemPicker(sender: UIButton) {
-        ActionSheetStringPicker.show(withTitle: "Disease of Interest", rows: ["One", "Two", "A lot"], initialSelection: 1, doneBlock: {
-            picker, value, index in
-            
-            print("value = \(value)")
-            print("index = \(index)")
-            print("picker = \(picker)")
-            return
-        }, cancel: { ActionStringCancelBlock in return }, origin: sender)
-    }
 
     @IBAction func completeSignUp(_ sender: Any) {
         //Insert data into Firebase
@@ -64,8 +61,19 @@ class SignUpDetailsViewController: UIViewController {
         
         db.updateUserData(name: name, zipCode: zipCode, about: aboutMe, privacy: privacy, showName: showName) { (success) in
             //Transition to Home VC
+            self.db.getPeople()
+            self.db.getEvents()
+            self.db.getOrganizations()
             self.performSegue(withIdentifier: "signUpToTabBar", sender: nil)
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
     /*

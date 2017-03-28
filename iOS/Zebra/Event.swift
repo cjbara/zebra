@@ -25,7 +25,7 @@ class Event {
     
     var longTimestamp: String {
         let df = DateFormatter()
-        df.dateFormat = "EEEE, M d"
+        df.dateFormat = "EEEE, M/d"
         let df2 = DateFormatter()
         df2.dateFormat = "h:mm a"
         

@@ -15,9 +15,10 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     let db = Database.sharedInstance
     
     @IBOutlet var mapView: MKMapView!
-    let regionRadius: CLLocationDistance = 2000
-    
-    var events: [Event] = []
+    let regionRadius: CLLocationDistance = 10000
+    @IBOutlet var eventsBox: UISwitch!
+    @IBOutlet var orgsBox: UISwitch!
+    @IBOutlet var peopleBox: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +39,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         refresh()
     }
     
+    @IBAction func orgsClicked(_ sender: UISwitch) {
+        refresh()
+    }
+    
+    @IBAction func eventsClicked(_ sender: UISwitch) {
+        refresh()
+    }
+    
+    @IBAction func peopleClicked(_ sender: UISwitch) {
+        refresh()
+    }
+    
     func refresh() {
-        self.events = db.events
-        self.loadEventPins()
+        self.loadPins()
     }
 
     func centerMapOnLocation(location: CLLocationCoordinate2D) {
@@ -51,18 +63,32 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // Functions for map view delegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? EventAnnotation {
-            let identifier = "pin"
             var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-                as? MKPinAnnotationView { // 2
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-            } else {
-                // 3
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = true
-                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
-            }
+            
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "eventPin")
+            view.canShowCallout = true
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            view.pinTintColor = UIColor(colorLiteralRed: 111/255, green: 63/255, blue: 224/255, alpha: 1)
+            
+            return view
+            
+        } else if let annotation = annotation as? PersonAnnotation {
+            var view: MKPinAnnotationView
+            
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "personPin")
+            view.canShowCallout = true
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            view.pinTintColor = UIColor(colorLiteralRed: 233/255, green: 151/255, blue: 0/255, alpha: 1)
+            
+            return view
+        } else if let annotation = annotation as? OrgAnnotation {
+            var view: MKPinAnnotationView
+            
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "personPin")
+            view.canShowCallout = true
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            view.pinTintColor = UIColor(colorLiteralRed: 91/255, green: 166/255, blue: 244/255, alpha: 1)
+            
             return view
         }
         return nil
@@ -71,17 +97,41 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if (control as? UIButton)?.buttonType == UIButtonType.detailDisclosure {
             mapView.deselectAnnotation(view.annotation, animated: false)
-            let eventAnnotation = view.annotation as! EventAnnotation
-            performSegue(withIdentifier: "showEventDetailFromMap", sender: eventAnnotation.event)
+            if let eventAnnotation = view.annotation as? EventAnnotation {
+                performSegue(withIdentifier: "showEventDetailFromMap", sender: eventAnnotation.event)
+            } else if let orgAnnotation = view.annotation as? OrgAnnotation {
+                performSegue(withIdentifier: "showOrgDetailFromMap", sender: orgAnnotation.org)
+            } else if let personAnnotation = view.annotation as? PersonAnnotation {
+                performSegue(withIdentifier: "showPersonDetailFromMap", sender: personAnnotation.person)
+            }
         }
     }
 
-    func loadEventPins() {
-        for event in events {
-            // show artwork on map
-            let newEvent = EventAnnotation(event: event, title: event.title, locationName: event.locationName, discipline: event.longTimestamp, coordinate: event.location)
-            
-            mapView.addAnnotation(newEvent)
+    func loadPins() {
+        for anno : MKAnnotation in mapView.annotations {
+            mapView.removeAnnotation(anno)
+        }
+        
+        if eventsBox.isOn {
+            for event in db.events {
+                // show artwork on map
+                let newEvent = EventAnnotation(event: event)
+                mapView.addAnnotation(newEvent)
+            }
+        }
+        
+        if peopleBox.isOn {
+            for person in db.people {
+                let newPerson = PersonAnnotation(person: person)
+                mapView.addAnnotation(newPerson)
+            }
+        }
+        
+        if orgsBox.isOn {
+            for org in db.organizations {
+                let newOrg = OrgAnnotation(organization: org)
+                mapView.addAnnotation(newOrg)
+            }
         }
     }
     
@@ -92,9 +142,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let event = sender as! Event
-        let dest = segue.destination as! EventDetailViewController
-        dest.event = event
+        if let event = sender as? Event {
+            let dest = segue.destination as! EventDetailViewController
+            dest.event = event
+        } else if let person = sender as? Profile {
+            let dest = segue.destination as! PersonViewController
+            dest.person = person
+        } else if let org = sender as? Organization {
+            let dest = segue.destination as! OrganizationDetailViewController
+            dest.organization = org
+        }
+        
     }
 
 }

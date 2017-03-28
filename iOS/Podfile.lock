@@ -39,6 +39,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.0)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
   - GTMSessionFetcher/Core (1.1.7)
+  - IQKeyboardManagerSwift (4.0.8)
   - LocationPicker (1.0.2)
   - Toast-Swift (2.0.0)
 
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - IQKeyboardManagerSwift
   - LocationPicker
   - Toast-Swift (~> 2.0.0)
 
@@ -62,9 +64,10 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   LocationPicker: 240b6328b8d7799530cc0da9973ea3f02dc646f4
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: 4bdbc98cc18911e1c14e30ad11775626db110c92
+PODFILE CHECKSUM: f11d36635e0ed800185d0a6190ed2d0d8062c77a
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.1.1

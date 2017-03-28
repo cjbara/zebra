@@ -13,7 +13,8 @@ class PersonViewController: UIViewController {
     @IBOutlet var personName: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var diseaseLabel: UILabel!
-    @IBOutlet var bioLabel: UILabel!
+    @IBOutlet var bioLabel: UITextView!
+    @IBOutlet var emailLabel: UIButton!
     
     var person = Profile()
     
@@ -26,6 +27,8 @@ class PersonViewController: UIViewController {
         locationLabel.text = person.location
         diseaseLabel.text = person.disease
         bioLabel.text = person.aboutMe
+        
+        emailLabel.setImage(#imageLiteral(resourceName: "mail"), for: .normal)
         
     }
 }
